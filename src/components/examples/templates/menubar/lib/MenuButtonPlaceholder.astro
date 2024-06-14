@@ -1,0 +1,93 @@
+---
+import TriangleIcon from "../../../../icons/TriangleIcon.astro"
+
+interface Props {
+	items: string[]
+	label: string
+}
+
+const { items, label } = Astro.props
+---
+
+<astro-menu-button-placeholder class="w-full">
+	<astro-dropdown class="hidden md:flex">
+		<button
+			type="button"
+			data-dropdown-button
+			class="menu-button relative box-border inline-flex items-center gap-2 border-2 border-transparent border-r-slate-500 p-1.5 px-4 py-2 text-white hover:bg-zinc-800"
+			aria-expanded="false"
+			id={`dropdown-${label}-button`}
+			aria-controls={`dropdown-${label}-menu`}
+		>
+			<span class="capitalize">{label.toLowerCase()}</span>
+			<TriangleIcon />
+		</button>
+		<ul
+			role="menu"
+			id={`dropdown-${label}-menu`}
+			aria-labelledby={`dropdown-${label}-button`}
+			class="absolute top-full hidden w-full min-w-60 border border-slate-700 bg-zinc-800 px-1 py-2"
+		>
+			{
+				items.map((item) => {
+					return (
+						<li class="p-1.5 hover:bg-slate-500 focus:bg-slate-500" role="menuitem">
+							<a href="#">{item}</a>
+						</li>
+					)
+				})
+			}
+		</ul>
+	</astro-dropdown>
+	<astro-disclosure class="flex w-full flex-col items-start justify-start gap-2 md:hidden">
+		<div class="flex w-full flex-col items-start justify-start px-4">
+			<button
+				aria-expanded="false"
+				aria-controls={`disclosure-${label}-menu`}
+				id={`disclosure-${label}-button`}
+				data-disclosure-button
+				class="flex w-full flex-wrap items-start justify-between rounded-md px-4 py-2 text-lg font-bold hover:bg-gray-600 hover:underline focus:no-underline"
+			>
+				<span class="capitalize">{label.toLowerCase()}</span>
+				<TriangleIcon />
+			</button>
+		</div>
+		<div class="hidden w-full px-8" aria-hidden="true">
+			<ul
+				role="menu"
+				class="w-full"
+				aria-labelledby={`disclosure-${label}-button`}
+				id={`disclosure-${label}-menu`}
+			>
+				{
+					items.map((item) => {
+						return (
+							<li
+								class="w-full rounded-md p-1.5 hover:bg-slate-500 focus:bg-slate-500"
+								role="menuitem"
+							>
+								<a href="#">{item}</a>
+							</li>
+						)
+					})
+				}
+			</ul>
+		</div>
+	</astro-disclosure>
+</astro-menu-button-placeholder>
+<style>
+	button[aria-expanded="true"] {
+		@apply z-50 border-slate-400 bg-zinc-800 outline outline-4 outline-slate-400;
+	}
+
+	button[aria-expanded="true"] + ul {
+		@apply z-50 border-t-4 border-slate-400;
+	}
+
+	button[aria-expanded="true"] svg {
+		@apply rotate-180;
+	}
+</style>
+<script src="./scripts/astro-menu-button-placeholder.ts"></script>
+<script src="../../../components/dropdown/scripts/astro-dropdown.ts"></script>
+<script src="../../../components/disclosure/scripts/astro-disclosure.ts"></script>

@@ -1,0 +1,59 @@
+---
+import HamburguerIcon from "../../../icons/HamburguerIcon.astro"
+import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
+import Footer from "../../../shared/Footer.astro"
+---
+
+<div class="grid min-h-screen grid-cols-1 grid-rows-[auto_1fr]">
+	<astro-sidebar-layout
+		id="sidebar-stacked"
+		class="sticky top-0 z-40 flex w-full flex-col items-start justify-start gap-0 bg-gray-800 px-8 md:grid md:grid-cols-[max-content_1fr] md:gap-8"
+	>
+		<div class="flex h-20 w-full flex-row items-center justify-between">
+			<header>
+				<h1 class="text-2xl font-bold">Header</h1>
+			</header>
+			<button
+				role="button"
+				id="toggle-sidebar-button"
+				aria-expanded="false"
+				aria-controls="navigation"
+				class="block md:hidden"
+			>
+				<HamburguerIcon />
+			</button>
+		</div>
+		<div class="relative flex w-full flex-col items-end justify-start md:h-full md:justify-center">
+			<nav
+				id="sidebar"
+				class="absolute -left-full flex h-screen w-full flex-col items-start justify-start gap-4 bg-gray-800 md:static md:h-full md:items-end md:justify-center"
+			>
+				<ul
+					class="flex w-full flex-col items-start justify-center gap-4 md:w-max md:flex-row md:items-center"
+				>
+					{
+						Array(5)
+							.fill("Item #")
+							.map((str, idx) => {
+								return (
+									<li class="w-auto md:w-max">
+										<a href="">{`${str}${idx + 1}`}</a>
+									</li>
+								)
+							})
+					}
+				</ul>
+			</nav>
+		</div>
+	</astro-sidebar-layout>
+	<main>
+		<div class="flex w-full flex-col items-center justify-center p-8">
+			<SectionsPlaceholder sectionsQuantity={5} />
+		</div>
+	</main>
+	<div class="flex w-full flex-col items-center justify-start">
+		<Footer />
+	</div>
+</div>
+<script src="./scripts/sidebar-stacked/apply-nav-height.ts"></script>
+<script src="../sidebar/scripts/astro-sidebar-layout.ts"></script>

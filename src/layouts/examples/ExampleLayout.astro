@@ -1,0 +1,85 @@
+---
+import "@fontsource/rubik/400.css"
+import "@fontsource/rubik/500.css"
+import "@fontsource/rubik/600.css"
+import "@fontsource/rubik/700.css"
+
+import ExampleNav from "../../components/layout/examples/ExampleNav.astro"
+
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="text-slate-600 dark:text-white">
+		<div class="fixed left-0 top-0 -z-10 size-full">
+			<div class="relative size-full bg-slate-900">
+				<div
+					class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+				>
+				</div>
+			</div>
+		</div>
+		<div class="flex w-full flex-col items-center justify-center">
+			<header
+				class="col-span-full flex h-20 w-full flex-row items-center justify-start text-center"
+			>
+				<a href="/" class="px-4 py-2 text-xl font-bold">Tailwind Layout Templates</a>
+			</header>
+			<div class="flex min-h-screen w-full flex-row items-start justify-start">
+				<ExampleNav />
+				<slot name="example-name" />
+				<slot />
+				<slot name="toc" />
+			</div>
+			<footer
+				class="col-span-full mx-auto my-4 flex h-24 w-full flex-row items-center justify-center"
+			>
+				<span class="w-full text-center">
+					Made by
+					<a href="https://github.com/NewCastile" target="_blank"> Newcastile </a>
+				</span>
+			</footer>
+		</div>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: "Rubik", sans-serif;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

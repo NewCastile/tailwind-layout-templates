@@ -1,0 +1,12 @@
+---
+export interface Props {
+	raw: string
+	lang: any
+}
+
+const { raw, lang } = Astro.props
+
+import { Code } from "astro/components"
+---
+
+<Code class={"text-sm max-h-[500px]"} code={raw} lang={lang} />

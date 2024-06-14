@@ -1,0 +1,85 @@
+---
+import TemplateCard from "../components/layout/TemplateCard.astro"
+import Layout from "../layouts/Layout.astro"
+
+import { PATTERNS, TEMPLATES } from "../data"
+---
+
+<Layout
+	title="Tailwind Layout Templates - Home"
+	description="Code Snippets for layout templates and components written with in TailwindCSS"
+>
+	<main class="flex flex-col items-center justify-center gap-14">
+		<section class="flex flex-col items-center justify-center">
+			<div class="mx-auto max-w-screen-xl px-4 py-8 text-center">
+				<h1
+					class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+				>
+					Tailwind Layout Templates
+				</h1>
+				<p
+					class="mb-8 text-lg font-normal text-gray-500 sm:px-16 lg:px-48 lg:text-xl dark:text-gray-400"
+				>
+					Code snipets for responsive and accesible common layouts in the web
+				</p>
+				<p>
+					The layouts and components your about to see all present a
+					<mark>responsive design</mark>,offering
+					<mark>simple</mark>, <mark>reusable</mark> and
+					<mark>accesible</mark> components for your next web application.
+				</p>
+			</div>
+		</section>
+		<section class="flex w-full flex-col items-center justify-center gap-8">
+			<h2 class="w-full text-center text-2xl">Layouts</h2>
+			<div class="grid w-full grid-flow-row grid-cols-4 gap-12">
+				{
+					TEMPLATES.map((template) => {
+						return <TemplateCard template={template} />
+					})
+				}
+			</div>
+		</section>
+		<section class="flex flex-col items-center justify-center gap-8">
+			<h2 class="w-full text-center text-2xl">Components</h2>
+			<div class="grid grid-flow-row grid-cols-4 gap-12">
+				{
+					PATTERNS.map((template) => {
+						return <TemplateCard template={template} />
+					})
+				}
+			</div>
+		</section>
+	</main>
+</Layout>
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	mark {
+		all: unset;
+		color: rgb(254 240 138);
+	}
+</style>

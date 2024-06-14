@@ -1,0 +1,21 @@
+---
+interface Props {
+	itemsQuantity: number
+}
+
+const { itemsQuantity } = Astro.props
+---
+
+<div>
+	{
+		Array(Math.round(itemsQuantity))
+			.fill("Element #")
+			.map((str, idx) => {
+				return (
+					<li class="w-full text-left text-slate-400">
+						<a href="">{`${str}${idx + 1}`}</a>
+					</li>
+				)
+			})
+	}
+</div>

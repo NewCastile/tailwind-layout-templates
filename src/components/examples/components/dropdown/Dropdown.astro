@@ -1,0 +1,37 @@
+---
+import TriangleIcon from "../../../icons/TriangleIcon.astro"
+---
+
+<astro-dropdown class="m-0 p-0">
+	<button
+		type="button"
+		class="relative m-0 inline-flex items-center gap-2 rounded-md border-0 p-1.5 text-white hover:border-2 hover:border-slate-700 hover:bg-zinc-800 focus:border-2 focus:border-slate-700 focus:bg-zinc-800"
+		aria-expanded="false"
+		id={"dropdown-button-example"}
+		aria-controls={"dropdown-menu-example"}
+	>
+		Actions
+		<TriangleIcon />
+	</button>
+	<ul
+		id={"dropdown-menu-example"}
+		role="menu"
+		class="absolute m-0 hidden w-max rounded-md border-2 border-slate-700 bg-zinc-800 px-1 py-2"
+		aria-labelledby={"dropdown-button-example"}
+	>
+		<li role="menuitem" class="m-0 p-1.5 hover:bg-slate-500 focus:bg-slate-500">Action 1</li>
+		<li role="menuitem" class="m-0 p-1.5 hover:bg-slate-500 focus:bg-slate-500">Action 2</li>
+		<li role="menuitem" class="m-0 p-1.5 hover:bg-slate-500 focus:bg-slate-500">Action 3</li>
+		<li role="menuitem" class="m-0 p-1.5 hover:bg-slate-500 focus:bg-slate-500">Action 4</li>
+	</ul>
+</astro-dropdown>
+<style>
+	button[aria-expanded="true"] {
+		@apply border-2 border-slate-700 bg-zinc-800;
+	}
+
+	button[aria-expanded="true"] svg {
+		@apply rotate-180;
+	}
+</style>
+<script src="./scripts/astro-dropdown.ts"></script>

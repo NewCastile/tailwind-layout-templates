@@ -1,0 +1,34 @@
+---
+import { TEMPLATES } from "../../../data"
+import { flattenTemplate } from "../../../helpers/flatten-templates"
+import PreviewLayout from "../../../layouts/preview/PreviewLayout.astro"
+
+export function getStaticPaths() {
+	const variantFlattenedTemplates = flattenTemplate(TEMPLATES)
+	const paths = variantFlattenedTemplates.map(({ label }) => {
+		return { params: { template: label } }
+	})
+
+	return paths
+}
+
+const variantFlattenedTemplates = flattenTemplate(TEMPLATES)
+
+const { template: slug } = Astro.params
+
+const [filteredTemplate] = variantFlattenedTemplates.filter((template) => {
+	if (template.label === slug) {
+		return template
+	}
+})
+
+const { component: PageTemplateExample, name: PageTemplateName } = filteredTemplate
+
+const pageTitle = `TLT Preview - ${PageTemplateName}`
+---
+
+<PreviewLayout title={pageTitle} description=`Preview page for the ${PageTemplateName} template`>
+	<div class="mx-auto flex w-full flex-col items-center justify-start">
+		{PageTemplateExample && <PageTemplateExample slot="example-preview" />}
+	</div>
+</PreviewLayout>

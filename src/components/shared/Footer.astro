@@ -1,0 +1,16 @@
+<footer
+	class="flex w-full flex-col items-center justify-center gap-4 border-t-2 border-slate-500 py-4"
+>
+	<h2 class="w-full text-center text-xl font-semibold">Footer</h2>
+	<nav class="flex flex-col items-center justify-center">
+		<ul class="flow-row flex flex-wrap items-center justify-center gap-4">
+			{
+				Array(4)
+					.fill("Element #")
+					.map((str, idx) => {
+						return <li>{`${str}${idx + 1}`}</li>
+					})
+			}
+		</ul>
+	</nav>
+</footer>

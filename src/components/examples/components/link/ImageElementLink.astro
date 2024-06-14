@@ -1,0 +1,23 @@
+<img
+	is="astro-image-link"
+	tabindex="0"
+	data-href={"https://www.w3.org/"}
+	role="link"
+	src="/src/components/logos/w3c-logo.svg"
+	alt="W3C Website"
+/>
+<style>
+	[role="link"] {
+		background: transparent;
+		text-decoration: underline;
+	}
+
+	[role="link"]:hover,
+	[role="link"]:focus {
+		color: rgb(98, 196, 235);
+		cursor: pointer;
+		outline: 0.2em solid rgb(90, 185, 230);
+		outline-offset: 0.2em;
+	}
+</style>
+<script src="./scripts/astro-image-link.ts"></script>

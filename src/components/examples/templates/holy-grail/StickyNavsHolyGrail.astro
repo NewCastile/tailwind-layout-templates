@@ -1,0 +1,80 @@
+---
+import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
+import Footer from "../../../shared/Footer.astro"
+---
+
+<astro-holy-grail-layout
+	id="holy-grail-layout"
+	class="flex min-h-screen w-full flex-col items-start justify-between sm:grid sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto]"
+>
+	<header class="w-full border-b-2 border-slate-500 px-8 py-4">
+		<h2 class="text-left text-2xl font-bold">Header</h2>
+	</header>
+	<div
+		class="flex w-full flex-col items-center justify-start sm:grid sm:grid-cols-[20%_60%_20%] sm:items-start"
+	>
+		<div
+			class="sticky top-0 col-span-1 flex w-full flex-col items-start justify-start bg-gray-800 px-0 py-2 sm:p-8"
+		>
+			<button
+				id="toggle-nav-button"
+				role="button"
+				aria-expanded="false"
+				aria-controls="navigation"
+				class="block self-end px-8 py-2 sm:hidden"
+			>
+				open
+			</button>
+			<div
+				id="main-navigation-container"
+				class="relative flex w-full flex-col items-center justify-start"
+			>
+				<nav
+					id="main-navigation"
+					aria-labelledby="navigation-label"
+					class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-gray-800 sm:static sm:h-auto sm:overflow-auto"
+				>
+					<h2 id="navigation-label" class="hidden w-full text-left text-xl sm:block">Nav</h2>
+					<ul class="flex flex-col items-center justify-start gap-2 px-8 sm:px-0">
+						{
+							Array(5)
+								.fill("Element #")
+								.map((str, idx) => {
+									return (
+										<li class="w-full text-left text-slate-400">
+											<a href="">{`${str}${idx + 1}`}</a>
+										</li>
+									)
+								})
+						}
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="col-span-1 flex flex-col items-center justify-start p-8">
+			<SectionsPlaceholder sectionsQuantity={10} />
+		</div>
+		<aside class="sticky top-0 col-span-1 flex w-full flex-col items-start justify-center p-8">
+			<nav
+				class="flex w-full flex-col items-start justify-center gap-4"
+				aria-labelledby="toc-label"
+			>
+				<h2 aria-label="toc-label" class="w-full text-left text-xl">Page Contents</h2>
+				<ul class="flex w-full flex-col items-center justify-center gap-2">
+					{
+						Array(4)
+							.fill("Element #")
+							.map((str, idx) => {
+								return <li class="w-full text-left text-slate-400">{`${str}${idx + 1}`}</li>
+							})
+					}
+				</ul>
+			</nav>
+		</aside>
+	</div>
+	<div class="flex w-full flex-col items-center justify-start">
+		<Footer />
+	</div>
+</astro-holy-grail-layout>
+<script src="./scripts/apply-nav-height.ts"></script>
+<script src="./scripts/astro-holy-grail-layout.ts"></script>

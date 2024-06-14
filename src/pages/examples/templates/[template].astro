@@ -1,0 +1,90 @@
+---
+import ExampleIframe from "../../../components/layout/example-preview/ExampleIframe.astro"
+import { TEMPLATES } from "../../../data"
+import ExampleLayout from "../../../layouts/examples/ExampleLayout.astro"
+
+export function getStaticPaths() {
+	const paths = TEMPLATES.map(({ label }) => {
+		return { params: { template: label } }
+	})
+	return paths
+}
+
+const { template: slug } = Astro.params
+
+const [filteredTemplate] = TEMPLATES.filter((template) => {
+	if (template.label === slug) {
+		return template
+	}
+})
+
+const {
+	component: PageTemplateExample,
+	name: PageTemplateName,
+	label: PageTemplateLabel,
+	files: PageTemplateFiles,
+	variants,
+} = filteredTemplate
+
+const pageTitle = `TLT - ${PageTemplateName}`
+---
+
+<ExampleLayout title={pageTitle}>
+	<div
+		class="flex w-full flex-col items-center justify-start gap-16 px-8 sm:w-4/5 lg:w-3/5 lg:px-0"
+	>
+		<section
+			id={`default-${PageTemplateLabel}`}
+			class="flex w-full flex-col items-start justify-center gap-8"
+		>
+			<h2 slot="example-name" class="w-full text-4xl font-medium">
+				{PageTemplateName}
+			</h2>
+			<div class="flex size-full flex-col items-center justify-center rounded-md bg-slate-800">
+				{
+					PageTemplateExample && (
+						<ExampleIframe files={PageTemplateFiles} slug={`/templates/${PageTemplateLabel}`} />
+					)
+				}
+			</div>
+		</section>
+		{
+			variants &&
+				variants.map(({ label, name, component: VariantComponent }) => {
+					return (
+						<section id={label} class="flex w-full flex-col items-center justify-center gap-4">
+							<h2 class="w-full text-4xl font-medium">{name}</h2>
+							<div class="flex w-full flex-col items-center justify-center rounded-md bg-slate-800">
+								{VariantComponent && (
+									<ExampleIframe files={PageTemplateFiles} slug={`/templates/${label}`} />
+								)}
+							</div>
+						</section>
+					)
+				})
+		}
+	</div>
+	{
+		variants && (
+			<nav
+				slot="toc"
+				class="sticky top-16 hidden w-1/5 flex-col items-start justify-start gap-4 px-8 lg:flex"
+				aria-labelledby="toc-label"
+			>
+				<h2 id="toc-label">Page contents</h2>
+				<ul class="flex flex-col items-center justify-center gap-4">
+					<li class="w-full text-left text-slate-400">
+						<a href={`#default-${PageTemplateLabel}`}>Default {PageTemplateName}</a>
+					</li>
+					{variants.map(({ href, name }) => {
+						return (
+							<li class="w-full text-left text-slate-400">
+								<a href={href}>{name}</a>
+							</li>
+						)
+					})}
+				</ul>
+			</nav>
+		)
+	}
+</ExampleLayout>

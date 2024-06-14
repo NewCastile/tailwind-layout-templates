@@ -1,0 +1,57 @@
+---
+import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
+---
+
+<astro-sidebar-layout
+	id="sidebar-with-header"
+	class="flex h-full min-h-screen w-full flex-col items-center justify-start sm:grid sm:grid-cols-[25%_1fr] sm:grid-rows-[auto_1fr]"
+>
+	<header
+		class="sticky top-0 col-span-full w-full border-b-2 border-slate-500 bg-zinc-800 px-8 py-4"
+	>
+		<h2 class="text-right text-2xl font-bold">Header</h2>
+	</header>
+	<div
+		data-sidebar-bg-container
+		class="col-span-1 flex w-full flex-col items-center justify-start bg-zinc-800 sm:static sm:h-full"
+	>
+		<div
+			data-sidebar-container
+			class="static flex w-full flex-col items-end justify-start sm:sticky"
+		>
+			<button
+				id="toggle-sidebar-button"
+				role="button"
+				aria-expanded="false"
+				aria-controls="sidebar"
+				class="block px-8 py-2 text-right sm:hidden"
+			>
+				open
+			</button>
+			<div class="relative flex w-full flex-col items-start justify-start">
+				<nav
+					id="sidebar"
+					aria-labelledby="sidebar-label"
+					class="absolute -left-full flex w-full flex-col items-center justify-start gap-4 bg-zinc-800 p-8 sm:static sm:h-auto"
+				>
+					<h2 id="sidebar-label" class="w-full text-left text-xl">Sidebar</h2>
+					<ul class="flex w-full flex-col items-center justify-center gap-2">
+						{
+							Array(5)
+								.fill("Item #")
+								.map((str, idx) => {
+									return <li class="w-full text-slate-400">{`${str}${idx + 1}`}</li>
+								})
+						}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<div class="col-span-1 flex h-full w-full flex-col items-start justify-start p-8">
+		<SectionsPlaceholder sectionsQuantity={3} />
+	</div>
+</astro-sidebar-layout>
+<script src="./scripts/with-header-sidebar/apply-sidebar-height.ts"></script>
+<script src="./scripts/with-header-sidebar/apply-sticky-header-top.ts"></script>
+<script src="./scripts/astro-sidebar-layout.ts"></script>

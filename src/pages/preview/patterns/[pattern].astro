@@ -1,0 +1,29 @@
+---
+import { PATTERNS } from "../../../data"
+import PreviewLayout from "../../../layouts/preview/PreviewLayout.astro"
+
+export function getStaticPaths() {
+	const paths = PATTERNS.map(({ label }) => {
+		return { params: { pattern: label } }
+	})
+	return paths
+}
+
+const { pattern: slug } = Astro.params
+
+const [filteredPattern] = PATTERNS.filter((pattern) => {
+	if (pattern.label === slug) {
+		return pattern
+	}
+})
+
+const { component: PagePatternExample, name: PagePatternName } = filteredPattern
+
+const pageTitle = `TLT - ${PagePatternName}`
+---
+
+<PreviewLayout title={pageTitle}>
+	<div class="mx-auto flex w-full flex-col items-center justify-center">
+		{PagePatternExample && <PagePatternExample />}
+	</div>
+</PreviewLayout>

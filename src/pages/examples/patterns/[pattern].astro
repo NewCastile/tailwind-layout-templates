@@ -1,0 +1,88 @@
+---
+import { PATTERNS } from "../../../data"
+import ExampleLayout from "../../../layouts/examples/ExampleLayout.astro"
+
+export function getStaticPaths() {
+	const paths = PATTERNS.map(({ label }) => {
+		return { params: { pattern: label } }
+	})
+	return paths
+}
+
+const { pattern: slug } = Astro.params
+
+const [filteredpattern] = PATTERNS.filter((pattern) => {
+	if (pattern.label === slug) {
+		return pattern
+	}
+})
+
+const {
+	component: PagePatternExample,
+	name: PagePatternName,
+	label: PagePatternLabel,
+	variants,
+} = filteredpattern
+
+const pageTitle = `TLT - ${PagePatternName}`
+---
+
+<ExampleLayout title={pageTitle}>
+	<div
+		class="flex w-full flex-col items-center justify-start gap-16 px-8 sm:w-4/5 lg:w-3/5 lg:px-0"
+	>
+		<section
+			id={`default-${PagePatternLabel}`}
+			class="flex w-full flex-col items-start justify-center gap-8"
+		>
+			<h2 slot="example-name" class="w-full text-4xl font-medium">
+				{PagePatternName}
+			</h2>
+			{
+				PagePatternExample && (
+					<div class="flex size-max min-h-40 w-full flex-col items-center justify-center rounded-md bg-slate-800">
+						<PagePatternExample />
+					</div>
+				)
+			}
+		</section>
+		{
+			variants &&
+				variants.map(({ label, name, component: VariantComponent }) => {
+					return (
+						<section id={label} class="flex w-full flex-col items-start justify-center gap-4">
+							<h2 class="w-full text-4xl font-medium">{name}</h2>
+							{VariantComponent && (
+								<div class="flex min-h-40 w-full flex-col items-center justify-center rounded-md bg-slate-800">
+									<VariantComponent />
+								</div>
+							)}
+						</section>
+					)
+				})
+		}
+	</div>
+	{
+		variants && (
+			<nav
+				slot="toc"
+				class="sticky top-16 hidden w-1/5 flex-col items-start justify-start gap-4 px-8 lg:flex"
+				aria-labelledby="toc-label"
+			>
+				<h2 id="toc-label">Page contents</h2>
+				<ul class="flex flex-col items-center justify-center gap-4">
+					<li class="w-full text-left text-slate-400">
+						<a href={`#default-${PagePatternLabel}`}>Default {PagePatternName}</a>
+					</li>
+					{variants.map(({ href, name }) => {
+						return (
+							<li class="w-full text-left text-slate-400">
+								<a href={href}>{name}</a>
+							</li>
+						)
+					})}
+				</ul>
+			</nav>
+		)
+	}
+</ExampleLayout>

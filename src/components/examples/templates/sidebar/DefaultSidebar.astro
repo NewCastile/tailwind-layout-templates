@@ -1,0 +1,47 @@
+---
+import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
+---
+
+<astro-sidebar-layout
+	id="default-sidebar"
+	class="flex min-h-screen w-full flex-col items-center justify-start sm:grid sm:grid-flow-row sm:grid-cols-[minmax(150px,_15%)_1fr]"
+>
+	<div
+		class="sticky top-0 flex h-full w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:border-none"
+	>
+		<div class="flex w-full flex-row items-center justify-end">
+			<button
+				id="toggle-sidebar-button"
+				role="button"
+				aria-expanded="false"
+				aria-controls="sidebar"
+				class="block px-8 py-2 text-right sm:hidden"
+			>
+				open
+			</button>
+		</div>
+		<div class="relative flex w-full flex-col items-start justify-start">
+			<nav
+				id="sidebar"
+				aria-labelledby="sidebar-label"
+				class="absolute -left-full flex w-full flex-col items-center justify-start gap-4 bg-zinc-800 p-8 sm:static"
+			>
+				<h2 id="sidebar-label" class="w-full text-left text-xl">Sidebar</h2>
+				<ul class="flex w-full flex-col items-center justify-center gap-2">
+					{
+						Array(5)
+							.fill("Item #")
+							.map((str, idx) => {
+								return <li class="w-full text-slate-400">{`${str}${idx + 1}`}</li>
+							})
+					}
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="flex h-full flex-col items-center justify-start p-8">
+		<SectionsPlaceholder sectionsQuantity={2} />
+	</div>
+</astro-sidebar-layout>
+<script src="./scripts/default-sidebar/apply-sidebar-height.ts"></script>
+<script src="./scripts/astro-sidebar-layout.ts"></script>

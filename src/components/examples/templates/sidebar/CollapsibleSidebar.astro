@@ -1,0 +1,53 @@
+---
+import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
+---
+
+<astro-collapsible-sidebar-layout
+	id="collapsible-sidebar"
+	class="grid min-h-screen w-full grid-flow-row grid-cols-[3rem_1fr]"
+>
+	<div class="z-20 flex h-full w-max flex-col items-start justify-start bg-zinc-800">
+		<div
+			data-sidebar-wrapper
+			class="sticky top-0 flex w-12 flex-col items-start justify-start gap-8 overflow-x-hidden"
+		>
+			<nav
+				id="sidebar"
+				aria-labelledby="sidebar-label"
+				class="flex w-max flex-col items-start justify-start gap-4 p-4 pr-8"
+			>
+				<div class="flex w-max flex-row items-baseline justify-start gap-4">
+					<button
+						aria-expanded="false"
+						aria-controls="sidebar"
+						role="button"
+						id="toggle-sidebar-button"
+						class="flex size-4 flex-col items-center justify-center px-2 text-2xl"
+					>
+						{">"}
+					</button>
+					<span id="sidebar-label" class="w-full text-left text-2xl font-bold">Sidebar</span>
+				</div>
+				<ul class="flex w-max flex-col items-center justify-center gap-4">
+					{
+						Array(5)
+							.fill("Item #")
+							.map((str, idx) => {
+								return (
+									<li class="flex w-max flex-row items-center justify-start gap-4 text-slate-400">
+										<div class="size-4 rounded-full bg-white px-2" />
+										<span>{`${str}${idx + 1}`}</span>
+									</li>
+								)
+							})
+					}
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div data-layout-content class="flex h-full flex-col items-start justify-start p-8">
+		<SectionsPlaceholder sectionsQuantity={2} />
+	</div>
+</astro-collapsible-sidebar-layout>
+<script src="./scripts/collapsible-sidebar/apply-sidebar-height"></script>
+<script src="./scripts/astro-collapsible-sidebar-layout"></script>

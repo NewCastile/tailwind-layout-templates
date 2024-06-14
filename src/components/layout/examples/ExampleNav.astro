@@ -1,0 +1,40 @@
+---
+import { PATTERNS, TEMPLATES } from "../../../data"
+---
+
+<nav class="sticky top-16 hidden w-1/5 items-center px-8 sm:flex">
+	<ul class="flex w-full flex-col items-center justify-center gap-8">
+		<li class="flex w-full flex-col items-center justify-center gap-4">
+			<h2 class="w-full">Templates</h2>
+			<ul class="flex w-full flex-col items-center justify-center gap-4 pl-6">
+				{
+					TEMPLATES.map(({ name, href }) => {
+						return (
+							<li class="w-full">
+								<a class="w-full text-left text-slate-400" href={href}>
+									{name}
+								</a>
+							</li>
+						)
+					})
+				}
+			</ul>
+		</li>
+		<li class="flex w-full flex-col items-center justify-center gap-4">
+			<h2 class="w-full">Components</h2>
+			<ul class="flex w-full flex-col items-center justify-center gap-4 pl-6">
+				{
+					PATTERNS.map(({ name, href }) => {
+						return (
+							<li class="w-full">
+								<a class="w-full text-left text-slate-400" href={href}>
+									{name}
+								</a>
+							</li>
+						)
+					})
+				}
+			</ul>
+		</li>
+	</ul>
+</nav>

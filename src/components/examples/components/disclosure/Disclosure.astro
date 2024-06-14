@@ -1,0 +1,38 @@
+---
+import TriangleIcon from "../../../icons/TriangleIcon.astro"
+---
+
+<astro-disclosure class="flex w-full flex-col items-start justify-start gap-4">
+	<div
+		class="flex w-full flex-col items-start justify-start gap-4 p-6"
+		id="collapse-button"
+		aria-controls="collapse-section"
+	>
+		<h3 class="w-full text-lg">
+			<button
+				aria-expanded="false"
+				class="flex w-full flex-wrap items-start justify-between rounded-md px-4 py-2 text-lg font-bold hover:bg-gray-600 hover:underline focus:no-underline"
+			>
+				AI KR (Artificial Intelligence Knowledge Representation)
+				<TriangleIcon />
+				<span class="mt-4 flex w-full flex-col justify-start text-left text-sm font-normal">
+					Community group
+				</span>
+			</button>
+		</h3>
+		<div
+			class="hidden px-4 py-2"
+			aria-hidden="true"
+			id="collapse-section"
+			aria-labelledby="collapse-button"
+		>
+			<p>
+				The overall goal/mission of this community group is to explore the requirements, best
+				practices and implementation options for the conceptualization and specification of domain
+				knowledge in AI.
+			</p>
+			<a href="path/to/page">Visit the AI KR Community Group</a>
+		</div>
+	</div>
+</astro-disclosure>
+<script src="./scripts/astro-disclosure.ts"></script>

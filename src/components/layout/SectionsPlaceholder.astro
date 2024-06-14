@@ -1,0 +1,28 @@
+---
+interface Props {
+	sectionsQuantity: number
+}
+
+const { sectionsQuantity } = Astro.props
+---
+
+<article class="flex w-full flex-col items-center justify-start gap-8">
+	{
+		Array(Math.round(sectionsQuantity))
+			.fill("Section #")
+			.map((section, idx) => {
+				return (
+					<section class="flex w-full flex-col items-start justify-start gap-4">
+						<h2 class="text-2xl font-semibold">
+							{section}
+							{idx + 1}
+						</h2>
+						<p>
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi excepturi nostrum
+							placeat numquam dolorum. Aperiam!
+						</p>
+					</section>
+				)
+			})
+	}
+</article>
