@@ -22,7 +22,7 @@ const { component: PagePatternExample, name: PagePatternName } = filteredPattern
 const pageTitle = `TLT - ${PagePatternName}`
 ---
 
-<PreviewLayout title={pageTitle}>
+<PreviewLayout description=`Preview page for the ${PagePatternName} template` title={pageTitle}>
 	<div class="mx-auto flex w-full flex-col items-center justify-center">
 		{PagePatternExample && <PagePatternExample />}
 	</div>
