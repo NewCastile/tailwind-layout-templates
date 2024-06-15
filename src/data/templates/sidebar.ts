@@ -38,7 +38,7 @@ export const SidebarTemplate: TemplateItem = {
 		{
 			label: "sidebar-with-header",
 			name: "Sidebar with Header",
-			href: "/examples/templates/sidebar/#sidebar-with-header",
+			href: "/examples/templates/sidebar#sidebar-with-header",
 			component: SidebarWithHeader,
 			files: [
 				{ rawFile: RawSidebarWithHeader, rawFileName: "SidebarWithHeader.astro", lang: "astro" },
@@ -62,7 +62,7 @@ export const SidebarTemplate: TemplateItem = {
 		{
 			label: "collapsible-sidebar",
 			name: "Collapsible Sidebar",
-			href: "/examples/templates/sidebar/#collapsible-sidebar",
+			href: "/examples/templates/sidebar#collapsible-sidebar",
 			component: CollapsibleSidebar,
 			files: [
 				{ rawFile: RawCollapsibleSidebar, rawFileName: "CollapsibleSidebar.astro", lang: "astro" },

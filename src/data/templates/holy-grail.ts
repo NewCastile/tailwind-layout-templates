@@ -38,7 +38,7 @@ export const HolyGrailTemplate: TemplateItem = {
 		{
 			label: "sticky-navs-holy-grail",
 			name: "Sticky Navs Holy Grail",
-			href: "/examples/templates/holy-grail/#sticky-navs-holy-grail",
+			href: "/examples/templates/holy-grail#sticky-navs-holy-grail",
 			component: StickyNavsHolyGrail,
 			files: [
 				{
@@ -61,7 +61,7 @@ export const HolyGrailTemplate: TemplateItem = {
 		{
 			label: "all-sticky-holy-grail",
 			name: "All Sticky Holy Grail",
-			href: "/examples/templates/holy-grail/#all-sticky-holy-grail",
+			href: "/examples/templates/holy-grail#all-sticky-holy-grail",
 			component: AllStickyHolyGrail,
 			files: [
 				{
