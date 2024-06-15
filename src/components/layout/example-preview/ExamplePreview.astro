@@ -4,6 +4,7 @@ import ArrowUpIcon from "../../icons/ArrowUpIcon.astro"
 import DesktopIcon from "../../icons/device-icons/DesktopIcon.astro"
 import MobileIcon from "../../icons/device-icons/MobileIcon.astro"
 import TabletIcon from "../../icons/device-icons/TabletIcon.astro"
+import BreakpointButton from "./lib/BreakpointButton.astro"
 import FileTabs from "./lib/FileTabs.astro"
 
 interface Props {
@@ -24,30 +25,15 @@ const isTemplate = slug.includes("template")
 			data-current-breakpoint="DESKTOP"
 			class="flex h-max w-full flex-row items-center justify-start gap-4 py-4 md:justify-center md:gap-8"
 		>
-			<button
-				class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400"
-				type="button"
-				data-select-breakpoint-button
-				data-breakpoint-option-value="MOBILE"
-			>
+			<BreakpointButton breakpoint="mobile">
 				<MobileIcon />
-			</button>
-			<button
-				class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400"
-				type="button"
-				data-select-breakpoint-button
-				data-breakpoint-option-value="TABLET"
-			>
+			</BreakpointButton>
+			<BreakpointButton breakpoint="tablet">
 				<TabletIcon />
-			</button>
-			<button
-				class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400"
-				type="button"
-				data-select-breakpoint-button
-				data-breakpoint-option-value="DESKTOP"
-			>
+			</BreakpointButton>
+			<BreakpointButton breakpoint="desktop">
 				<DesktopIcon />
-			</button>
+			</BreakpointButton>
 		</div>
 		{
 			isTemplate && (
@@ -85,4 +71,4 @@ const isTemplate = slug.includes("template")
 		@apply rounded-xl border-2 border-zinc-700 bg-zinc-400;
 	}
 </style>
-<script src="./scripts/astro-example-iframe.ts"></script>
+<script src="./scripts/astro-example-preview.ts"></script>
