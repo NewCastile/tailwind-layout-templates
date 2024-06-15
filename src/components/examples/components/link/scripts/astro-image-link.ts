@@ -3,7 +3,6 @@ class ImageLink extends HTMLImageElement {
 		super()
 
 		const href = this.getAttribute("data-href")
-		console.log(href)
 		const changeLocation = (event: MouseEvent | KeyboardEvent, href: string) => {
 			if (event instanceof KeyboardEvent && event.key !== "Enter") {
 				return
