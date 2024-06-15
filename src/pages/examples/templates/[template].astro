@@ -67,21 +67,21 @@ const pageTitle = `TLT - ${PageTemplateName}`
 				)
 		}
 	</div>
-	{
-		variants && (
-			<nav
-				slot="toc"
-				class="sticky top-16 hidden w-1/5 flex-col items-start justify-start gap-4 px-8 lg:flex"
-				aria-labelledby="toc-label"
-			>
-				<h2 id="toc-label">Page contents</h2>
-				<ul class="flex flex-col items-center justify-center gap-4">
-					<li class="w-full text-left text-slate-400">
-						<a class="hover:text-white" href={`#default-${PageTemplateLabel}`}>
-							Default {PageTemplateName}
-						</a>
-					</li>
-					{variants.map(({ href, name }) => {
+	<nav
+		slot="toc"
+		class="sticky top-16 hidden w-1/5 flex-col items-start justify-start gap-4 px-8 lg:flex"
+		aria-labelledby="toc-label"
+	>
+		<h2 id="toc-label">Page contents</h2>
+		<ul class="flex flex-col items-center justify-center gap-4">
+			<li class="w-full text-left text-slate-400">
+				<a class="hover:text-white" href={`#default-${PageTemplateLabel}`}>
+					Default {PageTemplateName}
+				</a>
+			</li>
+			{
+				variants &&
+					variants.map(({ href, name }) => {
 						return (
 							<li class="w-full text-left text-slate-400">
 								<a class="hover:text-white" href={href}>
@@ -89,9 +89,8 @@ const pageTitle = `TLT - ${PageTemplateName}`
 								</a>
 							</li>
 						)
-					})}
-				</ul>
-			</nav>
-		)
-	}
+					})
+			}
+		</ul>
+	</nav>
 </ExampleLayout>
