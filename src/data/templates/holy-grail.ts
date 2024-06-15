@@ -27,6 +27,11 @@ export const HolyGrailTemplate: TemplateItem = {
 			rawFileName: "astro-holy-grail-layout.ts",
 			lang: "typescript",
 		},
+		{
+			rawFile: RawApplyNavHeight.default,
+			rawFileName: "apply-nav-height.ts",
+			lang: "typescript",
+		},
 	],
 	icon: HolyGrailTemplateIcon,
 	variants: [

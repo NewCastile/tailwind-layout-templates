@@ -8,7 +8,7 @@ import RawSpanElementLink from "../../components/examples/components/link/SpanEl
 import * as RawAstroImageLink from "../../components/examples/components/link/scripts/astro-image-link?raw"
 import * as RawAstroSpanLink from "../../components/examples/components/link/scripts/astro-span-link?raw"
 
-import PhotoLinkIcon from "../../components/icons/component-icons/PhotoLinkIcon.astro"
+import PhotoLinkIcon from "../../components/icons/pattern-icons/PhotoLinkIcon.astro"
 
 export const LinkPattern: TemplateItem = {
 	label: "link",
@@ -36,7 +36,11 @@ export const LinkPattern: TemplateItem = {
 			component: SpanElementLink,
 			files: [
 				{ rawFile: RawSpanElementLink, rawFileName: "SpanLink.astro", lang: "astro" },
-				{ rawFile: RawAstroSpanLink, rawFileName: "astro-span-link.ts", lang: "typescript" },
+				{
+					rawFile: RawAstroSpanLink.default,
+					rawFileName: "astro-span-link.ts",
+					lang: "typescript",
+				},
 			],
 			href: "examples/patterns/link#span-link",
 		},
