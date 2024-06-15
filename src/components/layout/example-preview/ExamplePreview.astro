@@ -1,0 +1,88 @@
+---
+import type { TemplateItem } from "../../../data"
+import ArrowUpIcon from "../../icons/ArrowUpIcon.astro"
+import DesktopIcon from "../../icons/device-icons/DesktopIcon.astro"
+import MobileIcon from "../../icons/device-icons/MobileIcon.astro"
+import TabletIcon from "../../icons/device-icons/TabletIcon.astro"
+import FileTabs from "./lib/FileTabs.astro"
+
+interface Props {
+	slug: string
+	files: TemplateItem["files"]
+}
+const { slug, files } = Astro.props
+const isTemplate = slug.includes("template")
+---
+
+<astro-example-preview
+	data-slug={slug}
+	class="relative flex h-full w-full flex-col items-center justify-center gap-8 pb-8"
+>
+	<div class="flex w-full flex-row items-center justify-center rounded-t-md bg-slate-600 px-4">
+		<div
+			data-breakpoint-menu
+			data-current-breakpoint="DESKTOP"
+			class="flex h-max w-full flex-row items-center justify-start gap-4 py-4 md:justify-center md:gap-8"
+		>
+			<button
+				class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400"
+				type="button"
+				data-select-breakpoint-button
+				data-breakpoint-option-value="MOBILE"
+			>
+				<MobileIcon />
+			</button>
+			<button
+				class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400"
+				type="button"
+				data-select-breakpoint-button
+				data-breakpoint-option-value="TABLET"
+			>
+				<TabletIcon />
+			</button>
+			<button
+				class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400"
+				type="button"
+				data-select-breakpoint-button
+				data-breakpoint-option-value="DESKTOP"
+			>
+				<DesktopIcon />
+			</button>
+		</div>
+		{
+			isTemplate && (
+				<a
+					class="static right-10 inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:cursor-pointer hover:border-white hover:bg-sky-900 hover:text-white sm:absolute"
+					target="_blank"
+					href={`/preview${slug}`}
+				>
+					<ArrowUpIcon />
+				</a>
+			)
+		}
+	</div>
+	<div data-iframe-wrapper class="flex h-auto w-full flex-col items-center justify-center px-8">
+		<iframe
+			class="flex h-[500px] w-full flex-col items-center justify-center rounded-md border-2 border-slate-500 hover:border-white"
+			src={`/preview${slug}`}
+		>
+		</iframe>
+	</div>
+	<div class="h-auto w-full px-8 text-sm">
+		{files && <FileTabs files={files} />}
+	</div>
+</astro-example-preview>
+<style>
+	iframe::-webkit-scrollbar {
+		height: 0.5em;
+	}
+
+	iframe::-webkit-scrollbar-track {
+		@apply bg-zinc-700;
+	}
+
+	iframe::-webkit-scrollbar-thumb {
+		@apply rounded-xl border-2 border-zinc-700 bg-zinc-400;
+	}
+</style>
+<script src="./scripts/astro-example-iframe.ts"></script>

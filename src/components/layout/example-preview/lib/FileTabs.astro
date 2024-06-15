@@ -1,0 +1,92 @@
+---
+import { LOGOS, type TemplateItem } from "../../../../data"
+import CodeWrapper from "../lib/CodeWrapper.astro"
+import ClipboardButton from "./ClipboardButton.astro"
+
+interface Props {
+	files: TemplateItem["files"]
+}
+
+const { files } = Astro.props
+const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
+---
+
+<astro-tabs
+	class="flex h-max w-full flex-col items-start justify-start rounded-md border-2 border-slate-500 hover:border-white"
+>
+	<div class="w-full">
+		<div class="tabs-container w-full overflow-x-auto rounded-t-sm bg-zinc-900">
+			<div role="tablist" class="flex w-max flex-row items-center justify-start">
+				{
+					fileNames.map((fileName, fileNameIdx) => {
+						const isFirstElement = !fileNameIdx
+						const tabIdx = fileNameIdx + 1
+						const fileExtension = LOGOS.find((logo) => {
+							const dotSplittedFilename = fileName.split(".")
+							const extension = dotSplittedFilename[dotSplittedFilename.length - 1]
+							return logo.fileExtension === extension
+						})
+
+						return (
+							<button
+								id={`tab-${tabIdx}`}
+								type="button"
+								role="tab"
+								aria-selected={isFirstElement ? "true" : "false"}
+								aria-controls={`tabpanel-${tabIdx}`}
+								class={
+									"w-max rounded-t-sm border-r border-r-slate-400 px-4 py-2 text-xs text-slate-400 focus:text-white"
+								}
+							>
+								<span class="inline-flex w-max flex-row items-center justify-start gap-2 align-middle">
+									{fileExtension && <fileExtension.icon width="14" height="14" />}
+									{fileName}
+								</span>
+							</button>
+						)
+					})
+				}
+			</div>
+		</div>
+	</div>
+	<div class="relative flex h-[500px] w-full flex-col items-center justify-start overflow-y-hidden">
+		{
+			files &&
+				files.map(({ rawFile, rawFileName, lang }, fileIdx) => {
+					const isFirstElement = !fileIdx
+					const panelIdx = fileIdx + 1
+					console.log()
+					return (
+						<div
+							id={`tabpanel-${panelIdx}`}
+							class:list={[{ hidden: isFirstElement }, "h-full"]}
+							role="tabpanel"
+							class="w-full"
+							aria-labelledby={`tab-${panelIdx}`}
+						>
+							<CodeWrapper lang={lang} raw={rawFile} />
+							<ClipboardButton rawFileName={rawFileName} />
+						</div>
+					)
+				})
+		}
+	</div>
+</astro-tabs>
+<style>
+	.tabs-container::-webkit-scrollbar {
+		@apply h-2;
+	}
+
+	.tabs-container::-webkit-scrollbar-track {
+		@apply bg-zinc-700;
+	}
+
+	.tabs-container::-webkit-scrollbar-thumb {
+		@apply rounded-xl border-2 border-zinc-700 bg-zinc-400;
+	}
+
+	[role="tab"][aria-selected="true"] {
+		@apply border-t-2 border-blue-500 bg-[#24292E] text-white outline outline-4 outline-blue-500;
+	}
+</style>
+<script src="../scripts/astro-tabs.ts"></script>
