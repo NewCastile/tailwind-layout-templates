@@ -26,11 +26,12 @@ const applyUListHeight = (md: MediaQueryList) => {
 				)
 			} else {
 				$nav.setAttribute("style", "height: 0px;")
+				$ul.setAttribute("style", "height: 0px;")
 				$toggleNavButton.setAttribute("aria-expanded", "false")
 			}
 		} else {
 			$nav.setAttribute("style", "height: auto;")
-			$nav.setAttribute("style", "height: auto;")
+			$ul.setAttribute("style", "height: auto;")
 			$toggleNavButton.setAttribute("aria-expanded", "false")
 		}
 	}
