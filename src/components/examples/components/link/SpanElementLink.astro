@@ -2,19 +2,11 @@
 	W3C website
 </astro-span-link>
 <style>
-	[role="link"] {
-		background: transparent;
-		text-decoration: underline;
-	}
-
 	[role="link"]:hover,
 	[role="link"]:focus,
 	[role="link"]:hover::before,
 	[role="link"]:focus::before {
-		color: rgb(90, 185, 230);
-		cursor: pointer;
-		outline: 0.2em solid rgb(90, 185, 230);
-		outline-offset: 0.2em;
+		@apply cursor-pointer text-cyan-400 outline outline-4 outline-offset-2;
 	}
 </style>
 <script src="./scripts/astro-span-link.ts"></script>

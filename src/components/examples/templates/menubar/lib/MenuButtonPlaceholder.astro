@@ -31,8 +31,10 @@ const { items, label } = Astro.props
 			{
 				items.map((item) => {
 					return (
-						<li class="p-1.5 hover:bg-slate-500 focus:bg-slate-500" role="menuitem">
-							<a href="#">{item}</a>
+						<li class="w-full p-1.5 hover:bg-slate-500 focus:bg-slate-500" role="menuitem">
+							<a class="inline-flex w-full" href="#">
+								{item}
+							</a>
 						</li>
 					)
 				})
@@ -66,7 +68,9 @@ const { items, label } = Astro.props
 								class="w-full rounded-md p-1.5 hover:bg-slate-500 focus:bg-slate-500"
 								role="menuitem"
 							>
-								<a href="#">{item}</a>
+								<a class="inline-flex w-full" href="#">
+									{item}
+								</a>
 							</li>
 						)
 					})

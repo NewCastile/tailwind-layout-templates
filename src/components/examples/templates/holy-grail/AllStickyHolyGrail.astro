@@ -8,7 +8,7 @@ import Footer from "../../../shared/Footer.astro"
 	data-all-sticky-holy-grail
 	class="flex min-h-screen w-full flex-col items-start justify-between sm:grid sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto]"
 >
-	<header class="sticky top-0 z-50 w-full border-b-2 border-slate-500 bg-gray-800 px-8 py-4">
+	<header class="sticky top-0 z-50 w-full border-b-2 border-slate-500 bg-zinc-900 px-8 py-4">
 		<h2 class="text-left text-2xl font-bold">Header</h2>
 	</header>
 	<div
@@ -16,7 +16,7 @@ import Footer from "../../../shared/Footer.astro"
 	>
 		<div
 			id="main-navigation-container"
-			class="sticky z-40 col-span-1 flex w-full flex-col items-start justify-start bg-gray-800 px-0 py-2 sm:p-8"
+			class="sticky z-40 col-span-1 flex w-full flex-col items-start justify-start bg-zinc-900 px-0 py-2 sm:p-8"
 		>
 			<button
 				id="toggle-nav-button"
@@ -31,7 +31,7 @@ import Footer from "../../../shared/Footer.astro"
 				<nav
 					id="main-navigation"
 					aria-labelledby="navigation-label"
-					class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-gray-800 sm:static sm:h-auto sm:overflow-auto"
+					class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-zinc-900 sm:static sm:h-auto sm:overflow-auto"
 				>
 					<h2 id="navigation-label" class="hidden w-full text-left text-xl sm:block">Nav</h2>
 					<ul class="flex flex-col items-center justify-start gap-2 px-8 sm:px-0">
@@ -41,7 +41,7 @@ import Footer from "../../../shared/Footer.astro"
 								.map((str, idx) => {
 									return (
 										<li class="w-full text-left text-slate-400">
-											<a href="">{`${str}${idx + 1}`}</a>
+											<a href="" class="inline-flex w-full">{`${str}${idx + 1}`}</a>
 										</li>
 									)
 								})
@@ -64,7 +64,11 @@ import Footer from "../../../shared/Footer.astro"
 						Array(4)
 							.fill("Element #")
 							.map((str, idx) => {
-								return <li class="w-full text-left text-slate-400">{`${str}${idx + 1}`}</li>
+								return (
+									<li class="w-full text-left text-slate-400">
+										<a href="" class="inline-flex w-full">{`${str}${idx + 1}`}</a>
+									</li>
+								)
 							})
 					}
 				</ul>

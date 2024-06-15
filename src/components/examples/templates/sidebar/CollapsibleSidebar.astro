@@ -36,7 +36,9 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 								return (
 									<li class="flex w-max flex-row items-center justify-start gap-4 text-slate-400">
 										<div class="size-4 rounded-full bg-white px-2" />
-										<span>{`${str}${idx + 1}`}</span>
+										<span>
+											<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
+										</span>
 									</li>
 								)
 							})

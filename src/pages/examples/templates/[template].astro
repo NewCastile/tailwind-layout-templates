@@ -1,6 +1,7 @@
 ---
-import ExampleIframe from "../../../components/layout/example-preview/ExampleIframe.astro"
 import { TEMPLATES } from "../../../data"
+
+import ExampleIframe from "../../../components/layout/example-preview/ExamplePreview.astro"
 import ExampleLayout from "../../../layouts/examples/ExampleLayout.astro"
 
 export function getStaticPaths() {
@@ -29,9 +30,9 @@ const {
 const pageTitle = `TLT - ${PageTemplateName}`
 ---
 
-<ExampleLayout title={pageTitle}>
+<ExampleLayout slug={slug} title={pageTitle}>
 	<div
-		class="flex w-full flex-col items-center justify-start gap-16 px-8 sm:w-4/5 lg:w-3/5 lg:px-0"
+		class="flex w-full flex-col items-center justify-start gap-16 px-8 md:w-4/5 lg:w-3/5 lg:px-0"
 	>
 		<section
 			id={`default-${PageTemplateLabel}`}
@@ -50,18 +51,20 @@ const pageTitle = `TLT - ${PageTemplateName}`
 		</section>
 		{
 			variants &&
-				variants.map(({ label, name, component: VariantComponent }) => {
-					return (
-						<section id={label} class="flex w-full flex-col items-center justify-center gap-4">
-							<h2 class="w-full text-4xl font-medium">{name}</h2>
-							<div class="flex w-full flex-col items-center justify-center rounded-md bg-slate-800">
-								{VariantComponent && (
-									<ExampleIframe files={PageTemplateFiles} slug={`/templates/${label}`} />
-								)}
-							</div>
-						</section>
-					)
-				})
+				variants.map(
+					({ label, name, component: VariantComponent, files: VariantTemplateFiles }) => {
+						return (
+							<section id={label} class="flex w-full flex-col items-center justify-center gap-4">
+								<h2 class="w-full text-4xl font-medium">{name}</h2>
+								<div class="flex w-full flex-col items-center justify-center rounded-md bg-slate-800">
+									{VariantComponent && (
+										<ExampleIframe files={VariantTemplateFiles} slug={`/templates/${label}`} />
+									)}
+								</div>
+							</section>
+						)
+					}
+				)
 		}
 	</div>
 	{
@@ -74,12 +77,16 @@ const pageTitle = `TLT - ${PageTemplateName}`
 				<h2 id="toc-label">Page contents</h2>
 				<ul class="flex flex-col items-center justify-center gap-4">
 					<li class="w-full text-left text-slate-400">
-						<a href={`#default-${PageTemplateLabel}`}>Default {PageTemplateName}</a>
+						<a class="hover:text-white" href={`#default-${PageTemplateLabel}`}>
+							Default {PageTemplateName}
+						</a>
 					</li>
 					{variants.map(({ href, name }) => {
 						return (
 							<li class="w-full text-left text-slate-400">
-								<a href={href}>{name}</a>
+								<a class="hover:text-white" href={href}>
+									{name}
+								</a>
 							</li>
 						)
 					})}

@@ -8,9 +8,10 @@ import ExampleNav from "../../components/layout/examples/ExampleNav.astro"
 
 interface Props {
 	title: string
+	slug: string
 }
 
-const { title } = Astro.props
+const { title, slug } = Astro.props
 ---
 
 <!doctype html>
@@ -38,8 +39,10 @@ const { title } = Astro.props
 			>
 				<a href="/" class="px-4 py-2 text-xl font-bold">Tailwind Layout Templates</a>
 			</header>
-			<div class="flex min-h-screen w-full flex-row items-start justify-start">
-				<ExampleNav />
+			<div
+				class="flex min-h-screen w-full flex-col items-start justify-start gap-8 md:flex-row md:gap-0"
+			>
+				<ExampleNav slug={slug} />
 				<slot name="example-name" />
 				<slot />
 				<slot name="toc" />

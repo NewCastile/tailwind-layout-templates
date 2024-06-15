@@ -32,7 +32,9 @@ import { PATTERNS, TEMPLATES } from "../data"
 		</section>
 		<section class="flex w-full flex-col items-center justify-center gap-8">
 			<h2 class="w-full text-center text-2xl">Layouts</h2>
-			<div class="grid w-full grid-flow-row grid-cols-4 gap-12">
+			<div
+				class="flex w-full flex-col items-center justify-center gap-12 sm:grid sm:grid-flow-row sm:grid-cols-3 md:grid md:grid-cols-4"
+			>
 				{
 					TEMPLATES.map((template) => {
 						return <TemplateCard template={template} />
@@ -40,9 +42,11 @@ import { PATTERNS, TEMPLATES } from "../data"
 				}
 			</div>
 		</section>
-		<section class="flex flex-col items-center justify-center gap-8">
+		<section class="flex w-full flex-col items-center justify-center gap-8">
 			<h2 class="w-full text-center text-2xl">Components</h2>
-			<div class="grid grid-flow-row grid-cols-4 gap-12">
+			<div
+				class="flex w-full flex-col items-center justify-center gap-12 sm:grid sm:grid-flow-row sm:grid-cols-3 md:grid md:grid-cols-4"
+			>
 				{
 					PATTERNS.map((template) => {
 						return <TemplateCard template={template} />

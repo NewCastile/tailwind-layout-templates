@@ -13,7 +13,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 	</header>
 	<div
 		data-sidebar-bg-container
-		class="col-span-1 flex w-full flex-col items-center justify-start bg-zinc-800 sm:static sm:h-full"
+		class="col-span-1 flex w-full flex-col items-center justify-start bg-zinc-800 sm:static sm:h-full sm:border-r-2 sm:border-slate-500"
 	>
 		<div
 			data-sidebar-container
@@ -40,7 +40,11 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 							Array(5)
 								.fill("Item #")
 								.map((str, idx) => {
-									return <li class="w-full text-slate-400">{`${str}${idx + 1}`}</li>
+									return (
+										<li class="w-full text-slate-400">
+											<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
+										</li>
+									)
 								})
 						}
 					</ul>

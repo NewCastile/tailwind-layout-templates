@@ -27,7 +27,7 @@ import Footer from "../../../shared/Footer.astro"
 			<nav
 				id="main-navigation"
 				aria-labelledby="navigation-label"
-				class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-gray-800 sm:static sm:h-auto sm:overflow-auto"
+				class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-zinc-900 sm:static sm:h-auto sm:overflow-auto"
 			>
 				<h2 id="navigation-label" class="hidden w-full text-left text-xl sm:block">Nav</h2>
 				<ul class="flex flex-col items-center justify-start gap-2 px-8 sm:px-0">
@@ -37,7 +37,7 @@ import Footer from "../../../shared/Footer.astro"
 							.map((str, idx) => {
 								return (
 									<li class="w-full text-left text-slate-400">
-										<a href="">{`${str}${idx + 1}`}</a>
+										<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
 									</li>
 								)
 							})
@@ -57,7 +57,11 @@ import Footer from "../../../shared/Footer.astro"
 					Array(4)
 						.fill("Element #")
 						.map((str, idx) => {
-							return <li class="w-full text-left text-slate-400">{`${str}${idx + 1}`}</li>
+							return (
+								<li class="w-full text-left text-slate-400">
+									<a href="" class="inline-flex w-full">{`${str}${idx + 1}`}</a>
+								</li>
+							)
 						})
 				}
 			</ul>

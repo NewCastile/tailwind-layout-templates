@@ -1,4 +1,5 @@
 ---
+import FileTabs from "../../../components/layout/example-preview/lib/FileTabs.astro"
 import { PATTERNS } from "../../../data"
 import ExampleLayout from "../../../layouts/examples/ExampleLayout.astro"
 
@@ -21,15 +22,16 @@ const {
 	component: PagePatternExample,
 	name: PagePatternName,
 	label: PagePatternLabel,
+	files: PagePatternFiles,
 	variants,
 } = filteredpattern
 
 const pageTitle = `TLT - ${PagePatternName}`
 ---
 
-<ExampleLayout title={pageTitle}>
+<ExampleLayout slug={slug} title={pageTitle}>
 	<div
-		class="flex w-full flex-col items-center justify-start gap-16 px-8 sm:w-4/5 lg:w-3/5 lg:px-0"
+		class="flex h-max w-full flex-col items-center justify-start gap-16 px-8 sm:w-4/5 lg:w-3/5 lg:px-0"
 	>
 		<section
 			id={`default-${PagePatternLabel}`}
@@ -40,21 +42,31 @@ const pageTitle = `TLT - ${PagePatternName}`
 			</h2>
 			{
 				PagePatternExample && (
-					<div class="flex size-max min-h-40 w-full flex-col items-center justify-center rounded-md bg-slate-800">
-						<PagePatternExample />
+					<div class="flex w-full flex-col items-center justify-center gap-8 rounded-md bg-slate-800 py-8">
+						<div class="flex min-h-40 w-full flex-col items-center justify-center">
+							<PagePatternExample />
+						</div>
+						<div class="h-auto w-full px-8 text-sm">
+							{PagePatternFiles && <FileTabs files={PagePatternFiles} />}
+						</div>
 					</div>
 				)
 			}
 		</section>
 		{
 			variants &&
-				variants.map(({ label, name, component: VariantComponent }) => {
+				variants.map(({ label, name, component: VariantComponent, files }) => {
 					return (
-						<section id={label} class="flex w-full flex-col items-start justify-center gap-4">
+						<section id={label} class="flex h-max w-full flex-col items-start justify-center gap-4">
 							<h2 class="w-full text-4xl font-medium">{name}</h2>
 							{VariantComponent && (
-								<div class="flex min-h-40 w-full flex-col items-center justify-center rounded-md bg-slate-800">
-									<VariantComponent />
+								<div class="flex w-full flex-col items-center justify-center gap-8 rounded-md bg-slate-800 py-8">
+									<div class="flex min-h-40 w-full flex-col items-center justify-center">
+										<VariantComponent />
+									</div>
+									<div class="h-auto w-full px-8 text-sm">
+										{files && <FileTabs files={files} />}
+									</div>
 								</div>
 							)}
 						</section>

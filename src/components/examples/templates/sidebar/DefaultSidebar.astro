@@ -7,7 +7,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 	class="flex min-h-screen w-full flex-col items-center justify-start sm:grid sm:grid-flow-row sm:grid-cols-[minmax(150px,_15%)_1fr]"
 >
 	<div
-		class="sticky top-0 flex h-full w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:border-none"
+		class="sticky top-0 flex h-full w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:border-b-0 sm:border-r-2"
 	>
 		<div class="flex w-full flex-row items-center justify-end">
 			<button
@@ -32,7 +32,11 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 						Array(5)
 							.fill("Item #")
 							.map((str, idx) => {
-								return <li class="w-full text-slate-400">{`${str}${idx + 1}`}</li>
+								return (
+									<li class="w-full text-slate-400">
+										<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
+									</li>
+								)
 							})
 					}
 				</ul>
