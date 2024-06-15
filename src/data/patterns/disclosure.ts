@@ -4,7 +4,7 @@ import Disclosure from "../../components/examples/components/disclosure/Disclosu
 import RawDisclosure from "../../components/examples/components/disclosure/Disclosure.astro?raw"
 import * as RawAstroDisclosure from "../../components/examples/components/disclosure/scripts/astro-disclosure?raw"
 
-import DisclosureIcon from "../../components/icons/component-icons/DisclosureIcon.astro"
+import DisclosureIcon from "../../components/icons/pattern-icons/DisclosureIcon.astro"
 
 export const DisclosurePattern: TemplateItem = {
 	label: "disclosure",
@@ -15,7 +15,7 @@ export const DisclosurePattern: TemplateItem = {
 		{ rawFile: RawDisclosure, rawFileName: "Disclosure.astro", lang: "astro" },
 		{
 			rawFile: RawAstroDisclosure.default,
-			rawFileName: "astro-disclosure.astro",
+			rawFileName: "astro-disclosure.ts",
 			lang: "typescript",
 		},
 	],

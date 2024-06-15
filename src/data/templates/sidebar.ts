@@ -29,7 +29,7 @@ export const SidebarTemplate: TemplateItem = {
 		},
 		{
 			rawFile: RawDefaultSidebarApplyHeight.default,
-			rawFileName: "apply-sidebar-height",
+			rawFileName: "apply-sidebar-height.ts",
 			lang: "typescript",
 		},
 	],
@@ -68,7 +68,7 @@ export const SidebarTemplate: TemplateItem = {
 				{ rawFile: RawCollapsibleSidebar, rawFileName: "CollapsibleSidebar.astro", lang: "astro" },
 				{
 					rawFile: RawAstroCollapsibleSidebarLayout.default,
-					rawFileName: "collapsible-sidebar-layout",
+					rawFileName: "collapsible-sidebar-layout.ts",
 					lang: "typescript",
 				},
 				{
