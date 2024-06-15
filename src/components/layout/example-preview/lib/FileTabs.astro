@@ -55,7 +55,6 @@ const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
 				files.map(({ rawFile, rawFileName, lang }, fileIdx) => {
 					const isFirstElement = !fileIdx
 					const panelIdx = fileIdx + 1
-					console.log()
 					return (
 						<div
 							id={`tabpanel-${panelIdx}`}
