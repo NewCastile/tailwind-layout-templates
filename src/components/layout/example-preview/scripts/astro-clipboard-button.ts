@@ -18,13 +18,13 @@ class ClipboardButton extends HTMLElement {
 				if (file) {
 					navigator.clipboard.writeText(file.rawFile)
 
-					$toastButton.classList.remove("hidden")
-					$toastButton.classList.add("inline-flex")
+					$toastButton.classList.remove("opacity-0")
+					$toastButton.classList.add("opacity-100")
 
 					// hide toast after 3 seconds has passed.
 					setTimeout(() => {
-						$toastButton.classList.remove("inline-flex")
-						$toastButton.classList.add("hidden")
+						$toastButton.classList.remove("opacity-100")
+						$toastButton.classList.add("opacity-0")
 					}, 3000)
 				}
 			})
@@ -34,8 +34,8 @@ class ClipboardButton extends HTMLElement {
 			$toastButton.addEventListener("click", (event) => {
 				event.preventDefault()
 
-				$toastButton.classList.remove("inline-flex")
-				$toastButton.classList.add("hidden")
+				$toastButton.classList.remove("opacity-100")
+				$toastButton.classList.add("opacity-0")
 			})
 		}
 	}

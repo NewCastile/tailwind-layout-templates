@@ -13,14 +13,14 @@ const { rawFileName } = Astro.props
 	class="absolute bottom-6 right-6 flex w-max flex-col items-end justify-center gap-4"
 >
 	<button
-		class="toast-button hidden w-max items-center justify-center gap-2 rounded-full border border-slate-500 bg-emerald-950 p-2 px-4 align-middle text-xs text-slate-400 hover:border-white hover:bg-emerald-800"
+		class="toast-button inline-flex w-max items-center justify-center gap-2 rounded-full border border-slate-500 bg-emerald-950 p-2 px-4 align-middle text-xs text-slate-400 opacity-0 transition-opacity duration-200 ease-in-out hover:border-white hover:bg-emerald-800"
 	>
 		<span>Copied to clipboard!</span>
 		<CrossIcon width="14" height="14" />
 	</button>
 	<button
 		data-file-name={rawFileName}
-		class="clipboard-button inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:border-white hover:bg-slate-700"
+		class="clipboard-button inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:border-white hover:bg-sky-950"
 		type="button"
 	>
 		<ClipboardIcon />
