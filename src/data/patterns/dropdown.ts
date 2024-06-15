@@ -1,4 +1,4 @@
-import DropdownIcon from "../../components/icons/component-icons/DropdownIcon.astro"
+import DropdownIcon from "../../components/icons/pattern-icons/DropdownIcon.astro"
 import Dropdown from "../../components/examples/components/dropdown/Dropdown.astro"
 
 import RawDropdown from "../../components/examples/components/dropdown/Dropdown.astro?raw"
