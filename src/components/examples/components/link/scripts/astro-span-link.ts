@@ -1,4 +1,4 @@
-class SpanLink extends HTMLElement {
+class SpanLink extends HTMLSpanElement {
 	constructor() {
 		super()
 
