@@ -84,6 +84,10 @@ const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
 		@apply rounded-xl border-2 border-zinc-700 bg-zinc-400;
 	}
 
+	.tabs-container::-webkit-scrollbar-button {
+		@apply bg-white;
+	}
+
 	[role="tab"][aria-selected="true"] {
 		@apply border-t-2 border-blue-500 bg-[#24292E] text-white outline outline-4 outline-blue-500;
 	}

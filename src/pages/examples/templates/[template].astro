@@ -74,8 +74,8 @@ const pageTitle = `TLT - ${PageTemplateName}`
 	>
 		<h2 id="toc-label">Page contents</h2>
 		<ul class="flex flex-col items-center justify-center gap-4">
-			<li class="w-full text-left text-slate-400">
-				<a class="hover:text-white" href={`#default-${PageTemplateLabel}`}>
+			<li class="w-full text-left text-slate-400 hover:text-white">
+				<a href={`#default-${PageTemplateLabel}`}>
 					Default {PageTemplateName}
 				</a>
 			</li>
@@ -83,10 +83,8 @@ const pageTitle = `TLT - ${PageTemplateName}`
 				variants &&
 					variants.map(({ href, name }) => {
 						return (
-							<li class="w-full text-left text-slate-400">
-								<a class="hover:text-white" href={href}>
-									{name}
-								</a>
+							<li class="w-full text-left text-slate-400 hover:text-white">
+								<a href={href}>{name}</a>
 							</li>
 						)
 					})

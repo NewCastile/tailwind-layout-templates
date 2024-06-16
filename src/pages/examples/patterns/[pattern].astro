@@ -81,14 +81,16 @@ const pageTitle = `TLT - ${PagePatternName}`
 	>
 		<h2 id="toc-label">Page contents</h2>
 		<ul class="flex flex-col items-center justify-center gap-4">
-			<li class="w-full text-left text-slate-400">
-				<a href={`#default-${PagePatternLabel}`}>Default {PagePatternName}</a>
+			<li class="w-full text-left text-slate-400 hover:text-white">
+				<a href={`#default-${PagePatternLabel}`}>
+					Default {PagePatternName}
+				</a>
 			</li>
 			{
 				variants &&
 					variants.map(({ href, name }) => {
 						return (
-							<li class="w-full text-left text-slate-400">
+							<li class="w-full text-left text-slate-400 hover:text-white">
 								<a href={href}>{name}</a>
 							</li>
 						)

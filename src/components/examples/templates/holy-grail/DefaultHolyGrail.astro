@@ -10,7 +10,9 @@ import Footer from "../../../shared/Footer.astro"
 	<header class="col-span-full w-full border-b-2 border-slate-500 px-8 py-4">
 		<h2 class="text-left text-2xl font-bold">Header</h2>
 	</header>
-	<div class="col-span-1 flex w-full flex-col items-start justify-start px-0 py-2 sm:p-8">
+	<div
+		class="col-span-1 flex h-full w-full flex-col items-start justify-start bg-zinc-800 px-0 py-2 sm:p-8"
+	>
 		<button
 			id="toggle-nav-button"
 			role="button"
@@ -27,7 +29,7 @@ import Footer from "../../../shared/Footer.astro"
 			<nav
 				id="main-navigation"
 				aria-labelledby="navigation-label"
-				class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-zinc-900 sm:static sm:h-auto sm:overflow-auto"
+				class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden transition-[height] duration-200 ease-in-out sm:static sm:h-auto sm:overflow-auto"
 			>
 				<h2 id="navigation-label" class="hidden w-full text-left text-xl sm:block">Nav</h2>
 				<ul class="flex flex-col items-center justify-start gap-2 px-8 sm:px-0">
@@ -36,7 +38,7 @@ import Footer from "../../../shared/Footer.astro"
 							.fill("Element #")
 							.map((str, idx) => {
 								return (
-									<li class="w-full text-left text-slate-400">
+									<li class="w-full text-left">
 										<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
 									</li>
 								)
@@ -49,7 +51,7 @@ import Footer from "../../../shared/Footer.astro"
 	<div class="col-span-1 flex flex-col items-center justify-start p-8">
 		<SectionsPlaceholder sectionsQuantity={10} />
 	</div>
-	<aside class="col-span-1 flex flex-col items-center justify-start p-8">
+	<aside class="col-span-1 flex h-full flex-col items-center justify-start bg-zinc-800 p-8">
 		<nav class="flex w-full flex-col items-center justify-start gap-4" aria-labelledby="toc-label">
 			<h2 aria-label="toc-label" class="w-full text-left text-xl">Page Contents</h2>
 			<ul class="flex w-full flex-col items-center justify-center gap-2">
@@ -58,7 +60,7 @@ import Footer from "../../../shared/Footer.astro"
 						.fill("Element #")
 						.map((str, idx) => {
 							return (
-								<li class="w-full text-left text-slate-400">
+								<li class="w-full text-left">
 									<a href="" class="inline-flex w-full">{`${str}${idx + 1}`}</a>
 								</li>
 							)

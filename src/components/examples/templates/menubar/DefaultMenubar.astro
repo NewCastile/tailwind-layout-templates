@@ -8,7 +8,7 @@ import MenuButtonPlaceholder from "./lib/MenuButtonPlaceholder.astro"
 <div class="grid min-h-screen w-full grid-cols-1 grid-rows-[auto_1fr]">
 	<astro-menubar-header
 		id="menubar-header"
-		class="sticky top-0 z-40 flex w-full flex-col items-start justify-start bg-zinc-900"
+		class="sticky top-0 z-40 flex w-full flex-col items-start justify-start bg-zinc-800 sm:bg-zinc-900"
 	>
 		<header class="inline-flex h-20 w-full flex-row items-center justify-between px-8 align-middle">
 			<h1 class="text-2xl font-bold">Header</h1>
@@ -25,7 +25,7 @@ import MenuButtonPlaceholder from "./lib/MenuButtonPlaceholder.astro"
 		<div class="relative flex w-full flex-col items-start justify-center">
 			<nav
 				id="main-navigation"
-				class="absolute top-0 h-0 w-full overflow-hidden bg-zinc-900 md:static md:flex md:h-max md:flex-col md:justify-start md:overflow-visible"
+				class="absolute top-0 h-0 w-full overflow-hidden bg-zinc-800 md:static md:flex md:h-max md:flex-col md:justify-start md:overflow-visible"
 			>
 				<ul
 					is="astro-menubar-nav"
