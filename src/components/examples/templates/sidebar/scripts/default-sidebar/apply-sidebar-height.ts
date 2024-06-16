@@ -13,16 +13,19 @@ const closeClasses = ["-left-full"].concat(animationClasses)
 const openClasses = ["left-0"].concat(animationClasses)
 
 const applySidebarHeight = (mq: MediaQueryList) => {
+	const $sidebarContainter = document.querySelector<HTMLElement>(
+		"#default-sidebar #sidebar-container"
+	)
 	const $button = document.querySelector("#default-sidebar #toggle-sidebar-button")
 	const $sidebar = document.querySelector("#default-sidebar #sidebar")
 
-	if ($button && $sidebar) {
+	if ($sidebarContainter && $button && $sidebar) {
 		if (mq.matches) {
 			$sidebar.setAttribute(
 				"style",
 				`
-						height: calc(100vh - ${$button.clientHeight}px); 
-						max-height: calc(100vh - ${$button.clientHeight}px)
+						height: calc(100vh - ${$sidebarContainter.clientHeight}px); 
+						max-height: calc(100vh - ${$sidebarContainter.clientHeight}px)
 					`
 			)
 		} else {
