@@ -5,7 +5,7 @@ const $allStickyHolyGrailNavContainer = document.querySelector<HTMLElement>(
 	"[data-all-sticky-holy-grail] #main-navigation-container"
 )
 const $allStickyHolyGrailAside = document.querySelector<HTMLElement>(
-	"[data-all-sticky-holy-grail] aside"
+	"[data-all-sticky-holy-grail] aside nav"
 )
 
 if ($allStickyHolyGrailNavContainer && $allStickyHolyGrailAside && $allStickyHolyGrailHeader) {
