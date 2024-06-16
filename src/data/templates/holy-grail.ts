@@ -9,7 +9,8 @@ import RawStickyNavsHolyGrail from "../../components/examples/templates/holy-gra
 
 import * as RawAstroHolyGrailLayout from "../../components/examples/templates/holy-grail/scripts/astro-holy-grail-layout?raw"
 import * as RawApplyNavHeight from "../../components/examples/templates/holy-grail/scripts/apply-nav-height?raw"
-import * as RawApplyStickyNavsTop from "../../components/examples/templates/holy-grail/scripts/all-sticky/apply-sticky-navs-top?raw"
+import * as RawApplyAllStickyNavsTop from "../../components/examples/templates/holy-grail/scripts/all-sticky/apply-sticky-navs-top?raw"
+import * as RawApplyStickyNavsTop from "../../components/examples/templates/holy-grail/scripts/sticky-navs/apply-sticky-navs-top?raw"
 
 import AllStickyHolyGrail from "../../components/examples/templates/holy-grail/AllStickyHolyGrail.astro"
 
@@ -56,6 +57,11 @@ export const HolyGrailTemplate: TemplateItem = {
 					rawFileName: "apply-nav-height.ts",
 					lang: "typescript",
 				},
+				{
+					rawFile: RawApplyStickyNavsTop.default,
+					rawFileName: "apply-sticky-navs-top.ts",
+					lang: "typescript",
+				},
 			],
 		},
 		{
@@ -80,7 +86,7 @@ export const HolyGrailTemplate: TemplateItem = {
 					lang: "typescript",
 				},
 				{
-					rawFile: RawApplyStickyNavsTop.default,
+					rawFile: RawApplyAllStickyNavsTop.default,
 					rawFileName: "apply-sticky-navs-top.ts",
 					lang: "typescript",
 				},
