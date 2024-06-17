@@ -58,17 +58,4 @@ const isTemplate = slug.includes("template")
 		{files && <FileTabs files={files} />}
 	</div>
 </astro-example-preview>
-<style>
-	iframe::-webkit-scrollbar {
-		height: 0.5em;
-	}
-
-	iframe::-webkit-scrollbar-track {
-		@apply bg-zinc-700;
-	}
-
-	iframe::-webkit-scrollbar-thumb {
-		@apply rounded-xl border-2 border-zinc-700 bg-zinc-400;
-	}
-</style>
 <script src="./scripts/astro-example-preview.ts"></script>

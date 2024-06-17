@@ -1,14 +1,12 @@
 class HolyGrail extends HTMLElement {
 	constructor() {
 		super()
-		const $header = this.querySelector("header")
 		const $button = this.querySelector<HTMLElement>("#toggle-nav-button")
+		const $buttonContainer = $button?.parentElement
 		const $nav = this.querySelector<HTMLElement>("#main-navigation")
 
 		const toggleNav = (isExpanded: string) => {
-			const headerHeight = $header!.clientHeight
-			const buttonHeight = $button!.clientHeight
-			const remainingSpace = `calc(100vh - ${headerHeight}px - ${buttonHeight}px)`
+			const remainingSpace = `calc(100vh - ${$buttonContainer!.offsetHeight}px)`
 
 			if (isExpanded === "false") {
 				$nav!.setAttribute("style", `height: ${remainingSpace}`)
@@ -19,7 +17,7 @@ class HolyGrail extends HTMLElement {
 			}
 		}
 
-		if ($header && $button && $nav) {
+		if ($button && $buttonContainer && $nav) {
 			$button.addEventListener("click", (event) => {
 				event.preventDefault()
 

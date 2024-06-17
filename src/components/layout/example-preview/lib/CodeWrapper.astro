@@ -9,22 +9,4 @@ const { raw, lang } = Astro.props
 import { Code } from "astro/components"
 ---
 
-<Code class={"text-xs h-full p-4"} code={raw} lang={lang} />
-<style>
-	.astro-code::-webkit-scrollbar {
-		width: 0.8em;
-		height: 0.8em;
-	}
-
-	.astro-code::-webkit-scrollbar-track {
-		@apply m-2 rounded-xl bg-zinc-700;
-	}
-
-	.astro-code::-webkit-scrollbar-thumb {
-		@apply rounded-xl bg-yellow-600;
-	}
-
-	.astro-code::-webkit-scrollbar-corner {
-		background: transparent;
-	}
-</style>
+<Code class={"text-xs h-full p-4"} theme={"dark-plus"} code={raw} lang={lang} />

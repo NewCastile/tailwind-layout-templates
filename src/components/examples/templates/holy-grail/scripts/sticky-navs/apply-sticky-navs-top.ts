@@ -1,5 +1,5 @@
-const $stickyNavsHolyGrailHeader = document.querySelector<HTMLElement>(
-	"[data-sticky-navs-holy-grail] header"
+const $stickyNavsHolyGrailHeading = document.querySelector<HTMLElement>(
+	"[data-sticky-navs-holy-grail] header h2"
 )
 const $stickyNavsHolyGrailNavContainer = document.querySelector<HTMLElement>(
 	"[data-sticky-navs-holy-grail] #main-navigation-container"
@@ -11,14 +11,11 @@ const $stickyNavsHolyGrailAsideNav = document.querySelector<HTMLElement>(
 if (
 	$stickyNavsHolyGrailNavContainer &&
 	$stickyNavsHolyGrailAsideNav &&
-	$stickyNavsHolyGrailHeader
+	$stickyNavsHolyGrailHeading
 ) {
 	$stickyNavsHolyGrailAsideNav.setAttribute(
 		"style",
-		`top: ${$stickyNavsHolyGrailHeader.offsetHeight}px`
+		`top: ${$stickyNavsHolyGrailHeading.offsetHeight}px`
 	)
-	$stickyNavsHolyGrailNavContainer.setAttribute(
-		"style",
-		`top: ${$stickyNavsHolyGrailHeader.offsetHeight}px`
-	)
+	$stickyNavsHolyGrailNavContainer.setAttribute("style", `top: 0px`)
 }

@@ -22,7 +22,7 @@ const { title, description } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="text-slate-600 dark:text-white">
+	<body class="text-white">
 		<div class="fixed left-0 top-0 -z-10 size-full">
 			<div class="relative size-full bg-slate-900">
 				<div
@@ -51,6 +51,7 @@ const { title, description } = Astro.props
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+		color-scheme: dark;
 	}
 	html {
 		font-family: "Rubik", sans-serif;

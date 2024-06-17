@@ -15,7 +15,7 @@ const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
 	class="flex h-max w-full flex-col items-start justify-start rounded-md border-2 border-slate-500 hover:border-white"
 >
 	<div class="w-full">
-		<div class="tabs-container w-full overflow-x-auto rounded-t-sm bg-zinc-900">
+		<div class="tabs-container w-full overflow-x-auto rounded-t-sm bg-stone-800">
 			<div role="tablist" class="flex w-max flex-row items-center justify-start">
 				{
 					fileNames.map((fileName, fileNameIdx) => {
@@ -35,7 +35,7 @@ const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
 								aria-selected={isFirstElement ? "true" : "false"}
 								aria-controls={`tabpanel-${tabIdx}`}
 								class={
-									"w-max rounded-t-sm border-r border-r-slate-400 px-4 py-2 text-xs text-slate-400 focus:text-white"
+									"w-max rounded-t-sm border-r border-r-slate-400 px-4 py-2 text-xs text-stone-400 focus:text-white"
 								}
 							>
 								<span class="inline-flex w-max flex-row items-center justify-start gap-2 align-middle">
@@ -72,24 +72,8 @@ const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
 	</div>
 </astro-tabs>
 <style>
-	.tabs-container::-webkit-scrollbar {
-		@apply h-2;
-	}
-
-	.tabs-container::-webkit-scrollbar-track {
-		@apply bg-zinc-700;
-	}
-
-	.tabs-container::-webkit-scrollbar-thumb {
-		@apply rounded-xl border-2 border-zinc-700 bg-zinc-400;
-	}
-
-	.tabs-container::-webkit-scrollbar-button {
-		@apply bg-white;
-	}
-
 	[role="tab"][aria-selected="true"] {
-		@apply border-t-2 border-blue-500 bg-[#24292E] text-white outline outline-4 outline-blue-500;
+		@apply border-t-2 border-blue-500 bg-[rgb(30_30_30)] text-white outline outline-4 outline-blue-500;
 	}
 </style>
 <script src="../scripts/astro-tabs.ts"></script>
