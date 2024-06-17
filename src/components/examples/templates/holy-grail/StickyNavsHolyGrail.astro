@@ -15,21 +15,21 @@ import Footer from "../../../shared/Footer.astro"
 		class="flex w-full flex-col items-center justify-start sm:grid sm:grid-cols-[20%_60%_20%] sm:items-start"
 	>
 		<div
-			class="col-span-1 flex h-full w-full flex-col items-start justify-start bg-zinc-800 px-0 py-2 sm:p-8"
+			id="main-navigation-container"
+			class="sticky top-0 col-span-1 flex h-auto w-full flex-col items-start justify-start bg-zinc-800 sm:h-full"
 		>
-			<div
-				id="main-navigation-container"
-				class="sticky flex w-full flex-col items-start justify-start"
-			>
-				<button
-					id="toggle-nav-button"
-					role="button"
-					aria-expanded="false"
-					aria-controls="navigation"
-					class="block self-end px-8 py-2 sm:hidden"
-				>
-					open
-				</button>
+			<div class="static flex w-full flex-col items-start justify-start sm:sticky sm:p-8">
+				<div class="flex w-full flex-row items-center justify-end px-0 py-2">
+					<button
+						id="toggle-nav-button"
+						role="button"
+						aria-expanded="false"
+						aria-controls="navigation"
+						class="block px-8 py-2 sm:hidden"
+					>
+						open
+					</button>
+				</div>
 				<div class="relative flex w-full flex-col items-center justify-start">
 					<nav
 						id="main-navigation"
@@ -37,9 +37,11 @@ import Footer from "../../../shared/Footer.astro"
 						class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden transition-[height] duration-200 ease-in-out sm:static sm:h-auto sm:overflow-auto"
 					>
 						<h2 id="navigation-label" class="hidden w-full text-left text-xl sm:block">Nav</h2>
-						<ul class="flex flex-col items-center justify-start gap-2 px-8 sm:px-0">
+						<ul
+							class="flex h-full w-full flex-col items-center justify-start gap-2 bg-zinc-800 px-8 sm:px-0"
+						>
 							{
-								Array(5)
+								Array(7)
 									.fill("Element #")
 									.map((str, idx) => {
 										return (
@@ -59,7 +61,7 @@ import Footer from "../../../shared/Footer.astro"
 		</div>
 		<aside class="col-span-1 flex h-full w-full flex-col items-start justify-start bg-zinc-800 p-8">
 			<nav
-				class="sticky flex w-full flex-col items-start justify-start gap-4"
+				class="static flex w-full flex-col items-start justify-start gap-4 sm:sticky"
 				aria-labelledby="toc-label"
 			>
 				<h2 aria-label="toc-label" class="w-full text-left text-xl">Page Contents</h2>
@@ -84,5 +86,5 @@ import Footer from "../../../shared/Footer.astro"
 	</div>
 </astro-holy-grail-layout>
 <script src="./scripts/sticky-navs/apply-sticky-navs-top.ts"></script>
-<script src="./scripts/apply-nav-height.ts"></script>
+<script src="./scripts/sticky-navs/apply-nav-height.ts"></script>
 <script src="./scripts/astro-holy-grail-layout.ts"></script>
