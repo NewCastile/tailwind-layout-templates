@@ -1,5 +1,6 @@
 ---
 import FileTabs from "../../../components/layout/example-preview/lib/FileTabs.astro"
+import ExampleTOC from "../../../components/layout/examples/ExampleTOC.astro"
 import { PATTERNS } from "../../../data"
 import ExampleLayout from "../../../layouts/examples/ExampleLayout.astro"
 
@@ -30,9 +31,7 @@ const pageTitle = `TLT - ${PagePatternName}`
 ---
 
 <ExampleLayout slug={slug} title={pageTitle}>
-	<div
-		class="flex h-max w-full flex-col items-center justify-start gap-16 px-8 sm:w-4/5 lg:w-3/5 lg:px-0"
-	>
+	<div class="flex w-full flex-col items-center justify-start gap-16">
 		<section
 			id={`default-${PagePatternLabel}`}
 			class="flex w-full flex-col items-start justify-center gap-8"
@@ -43,7 +42,7 @@ const pageTitle = `TLT - ${PagePatternName}`
 			{
 				PagePatternExample && (
 					<div class="flex w-full flex-col items-center justify-center gap-8 rounded-md bg-slate-800 py-8">
-						<div class="flex min-h-40 w-full flex-col items-center justify-center">
+						<div class="flex min-h-40 w-full flex-col items-center justify-start">
 							<PagePatternExample />
 						</div>
 						<div class="h-auto w-full px-8 text-sm">
@@ -74,28 +73,10 @@ const pageTitle = `TLT - ${PagePatternName}`
 				})
 		}
 	</div>
-	<nav
+	<ExampleTOC
 		slot="toc"
-		class="sticky top-16 hidden w-1/5 flex-col items-start justify-start gap-4 px-8 lg:flex"
-		aria-labelledby="toc-label"
-	>
-		<h2 id="toc-label">Page contents</h2>
-		<ul class="flex flex-col items-center justify-center gap-4">
-			<li class="w-full text-left text-slate-400 hover:text-white">
-				<a href={`#default-${PagePatternLabel}`}>
-					Default {PagePatternName}
-				</a>
-			</li>
-			{
-				variants &&
-					variants.map(({ href, name }) => {
-						return (
-							<li class="w-full text-left text-slate-400 hover:text-white">
-								<a href={href}>{name}</a>
-							</li>
-						)
-					})
-			}
-		</ul>
-	</nav>
+		exampleLabel={PagePatternLabel}
+		exampleName={PagePatternName}
+		variants={variants}
+	/>
 </ExampleLayout>
