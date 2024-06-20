@@ -9,7 +9,6 @@ import RawSidebarWithHeader from "../../components/examples/templates/sidebar/Si
 
 import * as RawAstroCollapsibleSidebarLayout from "../../components/examples/templates/sidebar/scripts/astro-collapsible-sidebar-layout?raw"
 import * as RawAstroSidebarLayout from "../../components/examples/templates/sidebar/scripts/astro-sidebar-layout?raw"
-import * as RawCollapsibleSidebarApplyHeight from "../../components/examples/templates/sidebar/scripts/collapsible-sidebar/apply-sidebar-height?raw"
 import * as RawDefaultSidebarApplyHeight from "../../components/examples/templates/sidebar/scripts/default-sidebar/apply-sidebar-height?raw"
 import * as RawWithHeaderSidebarApplyHeight from "../../components/examples/templates/sidebar/scripts/with-header-sidebar/apply-sidebar-height?raw"
 import * as RawWithHeaderSidebarApplyStickyHeaderTop from "../../components/examples/templates/sidebar/scripts/with-header-sidebar/apply-sticky-header-top?raw"
@@ -69,11 +68,6 @@ export const SidebarTemplate: TemplateItem = {
 				{
 					rawFile: RawAstroCollapsibleSidebarLayout.default,
 					rawFileName: "collapsible-sidebar-layout.ts",
-					lang: "typescript",
-				},
-				{
-					rawFile: RawCollapsibleSidebarApplyHeight.default,
-					rawFileName: "apply-sidebar-height.ts",
 					lang: "typescript",
 				},
 			],

@@ -19,19 +19,12 @@ const applyNavHeight = (md: MediaQueryList) => {
 
 	if ($nav && $header && $toggleNavButton && isExpanded) {
 		if (md.matches) {
-			if (isExpanded === "true") {
-				$nav.setAttribute(
-					"style",
-					`
-						height: calc(100vh - ${$header.offsetHeight}px);
-						max-height: calc(100vh - ${$header.offsetHeight}px)
-					`
-				)
-			} else {
-				$nav.setAttribute("style", "height: 0px;")
-				$toggleNavButton.setAttribute("aria-expanded", "false")
+			if (isExpanded === "false") {
+				$nav.setAttribute("style", "")
+				return
 			}
-		} else {
+		}
+		if (!md.matches) {
 			$nav.setAttribute("style", "height: auto;")
 			$toggleNavButton.setAttribute("aria-expanded", "false")
 		}

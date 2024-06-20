@@ -11,15 +11,21 @@ class AllStickyHolyGrail extends HTMLElement {
 		const $buttonContainer = $button?.parentElement
 
 		const toggleNav = (isExpanded: string) => {
-			const headerHeight = $heading!.clientHeight
-			const buttonContainerHeight = $buttonContainer!.clientHeight
+			const headerHeight = $heading!.offsetHeight
+			const buttonContainerHeight = $buttonContainer!.offsetHeight
 			const remainingSpace = `calc(100vh - ${headerHeight}px - ${buttonContainerHeight}px)`
 
 			if (isExpanded === "false") {
-				$nav!.setAttribute("style", `height: ${remainingSpace}`)
+				$nav!.setAttribute(
+					"style",
+					`
+						height: ${remainingSpace}; 
+						max-height: ${remainingSpace};
+					`
+				)
 				$button!.setAttribute("aria-expanded", "true")
 			} else {
-				$nav!.setAttribute("style", `height: 0px`)
+				$nav!.setAttribute("style", "height: 0px;")
 				$button!.setAttribute("aria-expanded", "false")
 			}
 		}
