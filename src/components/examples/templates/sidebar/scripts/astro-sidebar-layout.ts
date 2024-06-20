@@ -1,9 +1,8 @@
 class Sidebar extends HTMLElement {
 	constructor() {
 		super()
-		const animationClasses = ["transition-[left]", "duration-200", "ease-in-out"]
-		const closeClasses = ["-left-full"].concat(animationClasses)
-		const openClasses = ["left-0"].concat(animationClasses)
+		const closeClasses = ["-left-full"]
+		const openClasses = ["left-0"]
 
 		const $button = this.querySelector("#toggle-sidebar-button")
 		const $sidebar = this.querySelector("#sidebar")
@@ -12,14 +11,14 @@ class Sidebar extends HTMLElement {
 			if ($button && $sidebar) {
 				switch (isExpanded) {
 					case "false":
-						$button.setAttribute("aria-expanded", "true")
 						$sidebar.classList.remove(...closeClasses)
 						$sidebar.classList.add(...openClasses)
+						$button.setAttribute("aria-expanded", "true")
 						break
 					case "true":
-						$button.setAttribute("aria-expanded", "false")
 						$sidebar.classList.remove(...openClasses)
 						$sidebar.classList.add(...closeClasses)
+						$button.setAttribute("aria-expanded", "false")
 						break
 					default:
 						break

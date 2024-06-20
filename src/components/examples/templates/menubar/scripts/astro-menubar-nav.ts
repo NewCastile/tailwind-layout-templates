@@ -37,7 +37,7 @@ class MenubarNav extends HTMLUListElement {
 
 		const toggleMenu = (menu: HTMLElement, show: boolean) => {
 			if (menu) {
-				menu.style.display = show ? "block" : "none"
+				menu.setAttribute("style", show ? "display: block;" : "display: none;")
 			}
 		}
 		const onButtonKeyDown = (event: KeyboardEvent) => {

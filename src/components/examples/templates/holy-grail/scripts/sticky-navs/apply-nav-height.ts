@@ -9,30 +9,36 @@ const {
 const mq = window.matchMedia(`(max-width: ${screens.sm})`)
 
 const applyNavHeight = (md: MediaQueryList) => {
-	const $nav = document.querySelector<HTMLElement>("#holy-grail-layout #main-navigation")
-	const $header = document.querySelector<HTMLElement>("#holy-grail-layout header")
+	const $nav = document.querySelector<HTMLElement>("[data-sticky-navs-holy-grail] #main-navigation")
+	const $aside = document.querySelector<HTMLElement>("[data-sticky-navs-holy-grail] aside nav")
+	const $header = document.querySelector<HTMLElement>("[data-sticky-navs-holy-grail] header")
 	const $toggleNavButton = document.querySelector<HTMLElement>(
-		"#holy-grail-layout #toggle-nav-button"
+		"[data-sticky-navs-holy-grail] #toggle-nav-button"
 	)
 
 	const isExpanded = $toggleNavButton?.getAttribute("aria-expanded")
 
-	if ($nav && $header && $toggleNavButton && isExpanded) {
+	if ($nav && $header && $toggleNavButton && $aside && isExpanded) {
+		const remainingHeight = `calc(100vh - ${$header.offsetHeight}px)`
 		if (md.matches) {
-			if (isExpanded === "true") {
-				$nav.setAttribute(
-					"style",
-					`
-						height: calc(100vh - ${$header.offsetHeight}px);
-						max-height: calc(100vh - ${$header.offsetHeight}px)
-					`
-				)
-			} else {
-				$nav.setAttribute("style", "height: 0px;")
-				$toggleNavButton.setAttribute("aria-expanded", "false")
-			}
+			$nav.setAttribute("style", "")
+			$aside.setAttribute("style", "")
 		} else {
-			$nav.setAttribute("style", "height: auto;")
+			$nav.setAttribute(
+				"style",
+				`
+					height: ${remainingHeight}; 
+					max-height:${remainingHeight};
+				`
+			)
+			$aside.setAttribute(
+				"style",
+				`
+					height: ${remainingHeight}; 
+					max-height:${remainingHeight};
+				`
+			)
+
 			$toggleNavButton.setAttribute("aria-expanded", "false")
 		}
 	}

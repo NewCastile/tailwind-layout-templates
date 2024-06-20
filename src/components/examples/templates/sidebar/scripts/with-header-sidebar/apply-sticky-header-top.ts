@@ -4,6 +4,5 @@ const $sidebarContainer = document.querySelector<HTMLElement>(
 )
 
 if ($sidebarHeader && $sidebarContainer) {
-	const headerHeight = `${$sidebarHeader.offsetHeight}px`
-	$sidebarContainer.setAttribute("style", `top: ${headerHeight};`)
+	$sidebarContainer.setAttribute("style", `top: ${$sidebarHeader.offsetHeight}px;`)
 }

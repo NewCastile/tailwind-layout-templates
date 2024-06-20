@@ -9,10 +9,10 @@ class StackedHeader extends HTMLElement {
 			const remainingSpace = `calc(100vh - ${headerHeight}px)`
 
 			if (isExpanded === "false") {
-				$nav!.setAttribute("style", `height: ${remainingSpace}`)
+				$nav!.setAttribute("style", `height: ${remainingSpace};`)
 				$button!.setAttribute("aria-expanded", "true")
 			} else {
-				$nav!.setAttribute("style", `height: 0px`)
+				$nav!.setAttribute("style", "height: 0px;")
 				$button!.setAttribute("aria-expanded", "false")
 			}
 		}
