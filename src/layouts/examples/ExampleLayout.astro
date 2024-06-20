@@ -4,6 +4,7 @@ import "@fontsource/rubik/500.css"
 import "@fontsource/rubik/600.css"
 import "@fontsource/rubik/700.css"
 
+import HamburguerIcon from "../../components/icons/HamburguerIcon.astro"
 import ExampleNav from "../../components/layout/examples/ExampleNav.astro"
 
 interface Props {
@@ -33,63 +34,109 @@ const { title, slug } = Astro.props
 				</div>
 			</div>
 		</div>
-		<div class="flex w-full flex-col items-center justify-center">
-			<header
-				class="col-span-full flex h-20 w-full flex-row items-center justify-start text-center"
+
+		<div class="flex w-full flex-col items-center justify-start">
+			<astro-all-sticky-holy-grail-layout
+				data-all-sticky-holy-grail
+				class="flex min-h-screen w-full flex-col items-start justify-between sm:grid sm:grid-cols-1 sm:grid-rows-[auto_1fr_auto]"
 			>
-				<a href="/" class="px-4 py-2 text-xl font-bold">Tailwind Layout Templates</a>
-			</header>
-			<div
-				class="flex min-h-screen w-full flex-col items-start justify-start gap-8 md:flex-row md:gap-0"
-			>
-				<ExampleNav slug={slug} />
-				<slot name="example-name" />
-				<slot />
-				<slot name="toc" />
-			</div>
-			<footer
-				class="col-span-full mx-auto my-4 flex h-24 w-full flex-row items-center justify-center"
-			>
-				<span class="w-full text-center">
-					Made by
-					<a href="https://github.com/NewCastile" target="_blank"> Newcastile </a>
-				</span>
-			</footer>
+				<header class="sticky top-0 z-[9999] w-full bg-slate-800 sm:bg-slate-900">
+					<h2 class="border-b-2 border-slate-500 px-8 py-4 text-left text-2xl font-bold">
+						<a href="/" class="text-xl font-bold">Tailwind Layout Templates</a>
+					</h2>
+					<div
+						class="inline-flex w-full flex-row items-center justify-end border-b-2 border-b-slate-500 px-4 py-2 sm:hidden sm:border-none"
+					>
+						<button
+							id="toggle-nav-button"
+							role="button"
+							aria-expanded="false"
+							aria-controls="navigation"
+							class="rounded-md p-2 hover:bg-slate-600"
+						>
+							<HamburguerIcon />
+						</button>
+					</div>
+				</header>
+				<div
+					class="flex w-full flex-col items-center justify-start sm:grid sm:grid-cols-[30%_70%] sm:items-start lg:grid-cols-[20%_60%_20%]"
+				>
+					<div
+						id="main-navigation-container"
+						data-mobile-sticky-container
+						class="sticky z-50 flex w-full flex-col items-start justify-start sm:static sm:col-span-1 sm:h-full"
+					>
+						<div
+							data-sticky-container
+							class="static flex w-full flex-col items-start justify-start sm:sticky"
+						>
+							<div class="relative flex w-full flex-col items-center justify-start">
+								<ExampleNav slug={slug} />
+							</div>
+						</div>
+					</div>
+					<div class="flex w-full flex-col items-center justify-start p-8 sm:col-span-1">
+						<slot />
+					</div>
+					<aside
+						class="hidden h-full w-full flex-col items-start justify-start sm:col-span-1 lg:flex"
+					>
+						<slot name="toc" />
+					</aside>
+				</div>
+				<footer
+					class="col-span-full mx-auto my-4 flex h-24 w-full flex-row items-center justify-center"
+				>
+					<span class="w-full text-center">
+						Made by
+						<a href="https://github.com/NewCastile" target="_blank"> Newcastile </a>
+					</span>
+				</footer>
+			</astro-all-sticky-holy-grail-layout>
 		</div>
 	</body>
+	<script
+		src="../../components/examples/templates/holy-grail/scripts/all-sticky/apply-nav-height.ts"
+	></script>
+	<script
+		src="../../components/examples/templates/holy-grail/scripts/all-sticky/apply-sticky-navs-top.ts"
+	></script>
+	<script
+		src="../../components/examples/templates/holy-grail/scripts/all-sticky/astro-all-sticky-holy-grail-layout.ts"
+	></script>
+	<style is:global>
+		:root {
+			--accent: 136, 58, 234;
+			--accent-light: 224, 204, 250;
+			--accent-dark: 49, 10, 101;
+			--accent-gradient: linear-gradient(
+				45deg,
+				rgb(var(--accent)),
+				rgb(var(--accent-light)) 30%,
+				white 60%
+			);
+			color-scheme: dark;
+			scroll-behavior: smooth;
+			scroll-padding-top: 2em;
+		}
+		body {
+			scroll-behavior: smooth;
+			scroll-padding-top: 2em;
+		}
+		html {
+			font-family: "Rubik", sans-serif;
+			background-size: 224px;
+		}
+		code {
+			font-family:
+				Menlo,
+				Monaco,
+				Lucida Console,
+				Liberation Mono,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Courier New,
+				monospace;
+		}
+	</style>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-		color-scheme: dark;
-		scroll-behavior: smooth;
-		scroll-padding-top: 2em;
-	}
-	body {
-		scroll-behavior: smooth;
-		scroll-padding-top: 2em;
-	}
-	html {
-		font-family: "Rubik", sans-serif;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
