@@ -2,6 +2,7 @@
 import { TEMPLATES } from "../../../data"
 
 import ExampleIframe from "../../../components/layout/example-preview/ExamplePreview.astro"
+import ExampleTOC from "../../../components/layout/examples/ExampleTOC.astro"
 import ExampleLayout from "../../../layouts/examples/ExampleLayout.astro"
 
 export function getStaticPaths() {
@@ -31,9 +32,7 @@ const pageTitle = `TLT - ${PageTemplateName}`
 ---
 
 <ExampleLayout slug={slug} title={pageTitle}>
-	<div
-		class="flex w-full flex-col items-center justify-start gap-16 px-8 md:w-4/5 lg:w-3/5 lg:px-0"
-	>
+	<div class="flex w-full flex-col items-center justify-start gap-16">
 		<section
 			id={`default-${PageTemplateLabel}`}
 			class="flex w-full flex-col items-start justify-center gap-8"
@@ -67,28 +66,10 @@ const pageTitle = `TLT - ${PageTemplateName}`
 				)
 		}
 	</div>
-	<nav
+	<ExampleTOC
 		slot="toc"
-		class="sticky top-16 hidden w-1/5 flex-col items-start justify-start gap-4 px-8 lg:flex"
-		aria-labelledby="toc-label"
-	>
-		<h2 id="toc-label">Page contents</h2>
-		<ul class="flex flex-col items-center justify-center gap-4">
-			<li class="w-full text-left text-slate-400 hover:text-white">
-				<a href={`#default-${PageTemplateLabel}`}>
-					Default {PageTemplateName}
-				</a>
-			</li>
-			{
-				variants &&
-					variants.map(({ href, name }) => {
-						return (
-							<li class="w-full text-left text-slate-400 hover:text-white">
-								<a href={href}>{name}</a>
-							</li>
-						)
-					})
-			}
-		</ul>
-	</nav>
+		exampleLabel={PageTemplateLabel}
+		exampleName={PageTemplateName}
+		variants={variants}
+	/>
 </ExampleLayout>
