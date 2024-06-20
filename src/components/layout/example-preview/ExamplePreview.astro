@@ -37,13 +37,18 @@ const isTemplate = slug.includes("template")
 		</div>
 		{
 			isTemplate && (
-				<a
-					class="static right-10 inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:cursor-pointer hover:border-white hover:bg-sky-900 hover:text-white sm:absolute"
-					target="_blank"
-					href={`/preview${slug}`}
-				>
-					<ArrowUpIcon />
-				</a>
+				<div class="group relative inline-flex w-max flex-col items-center justify-center align-middle">
+					<span class="absolute -top-[100%] w-max rounded-md border border-slate-300 bg-slate-800 px-4 py-2 text-sm lowercase text-white opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-100">
+						see showcase
+					</span>
+					<a
+						class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:border-white hover:bg-sky-900 hover:text-white"
+						target="_blank"
+						href={`/preview${slug}`}
+					>
+						<ArrowUpIcon />
+					</a>
+				</div>
 			)
 		}
 	</div>
