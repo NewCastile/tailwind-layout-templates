@@ -4,13 +4,13 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 
 <astro-sidebar-layout
 	id="default-sidebar"
-	class="flex min-h-screen w-full flex-col items-center justify-start sm:grid sm:grid-flow-row sm:grid-cols-[minmax(150px,_15%)_1fr]"
+	class="relative flex min-h-screen w-full flex-col items-start justify-start sm:grid sm:grid-flow-row sm:grid-cols-[minmax(150px,_15%)_1fr]"
 >
 	<div
 		id="sidebar-container"
-		class="sticky top-0 flex h-full w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:border-b-0 sm:border-r-2"
+		class="sticky top-0 h-auto w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:h-screen sm:max-h-screen sm:border-b-0 sm:border-r-2"
 	>
-		<div class="flex w-full flex-row items-center justify-end">
+		<div class="flex w-full justify-end">
 			<button
 				id="toggle-sidebar-button"
 				role="button"
@@ -25,7 +25,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 			<nav
 				id="sidebar"
 				aria-labelledby="sidebar-label"
-				class="absolute -left-full flex w-full flex-col items-center justify-start gap-4 bg-zinc-800 p-8 sm:static"
+				class="absolute -left-full top-0 flex w-full flex-col items-center justify-start gap-4 overflow-auto bg-zinc-800 p-8 sm:static"
 			>
 				<h2 id="sidebar-label" class="w-full text-left text-xl">Sidebar</h2>
 				<ul class="flex w-full flex-col items-center justify-center gap-2">
@@ -45,8 +45,13 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 		</div>
 	</div>
 	<div class="flex h-full flex-col items-center justify-start p-8">
-		<SectionsPlaceholder sectionsQuantity={2} />
+		<SectionsPlaceholder sectionsQuantity={20} />
 	</div>
 </astro-sidebar-layout>
+<style>
+	#sidebar {
+		@apply transition-[left] duration-200 ease-in-out;
+	}
+</style>
 <script src="./scripts/default-sidebar/apply-sidebar-height.ts"></script>
 <script src="./scripts/astro-sidebar-layout.ts"></script>

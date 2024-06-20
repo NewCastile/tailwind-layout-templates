@@ -9,7 +9,7 @@ import Footer from "../../../shared/Footer.astro"
 		id="stacked-header"
 		class="flex w-full flex-col items-start justify-start gap-0 border-b border-slate-400 bg-zinc-800 md:grid md:grid-cols-[max-content_1fr] md:gap-8"
 	>
-		<div class="flex h-20 w-full flex-row items-center justify-between px-8">
+		<div class="flex w-full flex-row items-center justify-between p-8">
 			<header>
 				<h1 class="text-2xl font-bold">Header</h1>
 			</header>
@@ -23,13 +23,15 @@ import Footer from "../../../shared/Footer.astro"
 				<HamburguerIcon />
 			</button>
 		</div>
-		<div class="relative flex w-full flex-col items-end justify-center md:h-full">
+		<div
+			class="relative flex w-full flex-col items-end justify-start px-0 sm:px-8 md:h-full md:justify-center"
+		>
 			<nav
 				id="main-navigation"
 				class="absolute top-0 flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-zinc-800 md:static md:flex md:h-auto md:w-max md:overflow-auto"
 			>
 				<ul
-					class="flex w-full flex-col items-start justify-start gap-4 p-8 md:w-max md:flex-row md:items-center"
+					class="flex w-full flex-col items-start justify-center gap-4 px-8 sm:px-0 md:w-max md:flex-row md:items-center"
 				>
 					{
 						Array(5)

@@ -4,7 +4,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 
 <astro-sidebar-layout
 	id="sidebar-with-header"
-	class="flex h-full min-h-screen w-full flex-col items-center justify-start sm:grid sm:grid-cols-[25%_1fr] sm:grid-rows-[auto_1fr]"
+	class="flex h-full min-h-screen w-full flex-col items-stretch justify-start sm:grid sm:grid-cols-[25%_1fr] sm:grid-rows-[auto_1fr]"
 >
 	<header
 		class="sticky top-0 col-span-full w-full border-b-2 border-slate-500 bg-zinc-800 px-8 py-4"
@@ -12,13 +12,10 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 		<h2 class="text-right text-2xl font-bold">Header</h2>
 	</header>
 	<div
-		data-sidebar-bg-container
-		class="col-span-1 flex w-full flex-col items-center justify-start bg-zinc-800 sm:static sm:h-full sm:border-r-2 sm:border-slate-500"
+		data-sidebar-grid-area
+		class="sticky col-span-1 flex w-full flex-col items-center justify-start bg-zinc-800 sm:static sm:border-r-2 sm:border-slate-500"
 	>
-		<div
-			data-sidebar-container
-			class="static flex w-full flex-col items-end justify-start sm:sticky"
-		>
+		<div data-sidebar-container class="sticky top-0 flex w-full flex-col items-end justify-start">
 			<button
 				id="toggle-sidebar-button"
 				role="button"
@@ -53,9 +50,14 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 		</div>
 	</div>
 	<div class="col-span-1 flex h-full w-full flex-col items-start justify-start p-8">
-		<SectionsPlaceholder sectionsQuantity={3} />
+		<SectionsPlaceholder sectionsQuantity={13} />
 	</div>
 </astro-sidebar-layout>
+<style>
+	#sidebar {
+		@apply transition-[left] duration-200 ease-in-out;
+	}
+</style>
 <script src="./scripts/with-header-sidebar/apply-sidebar-height.ts"></script>
 <script src="./scripts/with-header-sidebar/apply-sticky-header-top.ts"></script>
 <script src="./scripts/astro-sidebar-layout.ts"></script>

@@ -31,18 +31,18 @@ import Footer from "../../../shared/Footer.astro"
 		>
 			<div
 				data-sticky-container
-				class="static flex w-full flex-col items-start justify-start p-0 sm:sticky sm:p-8"
+				class="static flex w-full flex-col items-start justify-start sm:sticky"
 			>
 				<div class="relative flex w-full flex-col items-center justify-start">
 					<nav
 						id="main-navigation"
 						aria-labelledby="navigation-label"
-						class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-zinc-800 transition-[height] duration-200 ease-in-out sm:static sm:h-auto sm:overflow-auto sm:bg-transparent"
+						class="absolute flex h-0 w-full flex-col items-start justify-start gap-4 overflow-auto bg-zinc-800 p-0 sm:static sm:h-auto sm:bg-transparent sm:p-8"
 					>
 						<h2 id="navigation-label" class="hidden w-full text-left text-xl sm:block">Nav</h2>
-						<ul class="flex w-full flex-col items-center justify-start gap-2 p-8 sm:p-0">
+						<ul class="flex h-max w-full flex-col items-center justify-start gap-2 p-8 sm:p-0">
 							{
-								Array(5)
+								Array(25)
 									.fill("Element #")
 									.map((str, idx) => {
 										return (
@@ -63,13 +63,13 @@ import Footer from "../../../shared/Footer.astro"
 		<aside class="flex h-full w-full flex-col items-start justify-start bg-zinc-800 sm:col-span-1">
 			<nav
 				data-sticky-container
-				class="static flex w-full flex-col items-start justify-start gap-4 p-8 sm:sticky"
+				class="static flex w-full flex-col items-start justify-start gap-4 overflow-auto p-8 sm:sticky"
 				aria-labelledby="toc-label"
 			>
 				<h2 aria-label="toc-label" class="w-full text-left text-xl">Page Contents</h2>
 				<ul class="flex w-full flex-col items-center justify-center gap-2">
 					{
-						Array(4)
+						Array(24)
 							.fill("Element #")
 							.map((str, idx) => {
 								return (
@@ -87,6 +87,11 @@ import Footer from "../../../shared/Footer.astro"
 		<Footer />
 	</div>
 </astro-all-sticky-holy-grail-layout>
+<style>
+	#main-navigation {
+		@apply transition-[height] duration-200 ease-in-out;
+	}
+</style>
 <script src="./scripts/all-sticky/apply-sticky-navs-top.ts"></script>
 <script src="./scripts/all-sticky/apply-nav-height.ts"></script>
 <script src="./scripts/all-sticky/astro-all-sticky-holy-grail-layout.ts"></script>
