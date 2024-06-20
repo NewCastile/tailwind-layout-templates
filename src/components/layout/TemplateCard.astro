@@ -9,15 +9,42 @@ const {
 } = Astro.props
 ---
 
-<div
-	class="flex h-full w-max flex-col items-center justify-between gap-4 rounded-lg border-2 border-slate-400 bg-slate-700 px-6 py-4"
-	data-component="card"
+<astro-template-card
+	data-href={href}
+	class="group flex h-full w-max cursor-pointer flex-col items-center justify-between gap-4 rounded-lg border-2 border-slate-400 bg-slate-700 px-6 py-4 hover:border-white"
 >
-	<h3 class="text-center text-yellow-200">
+	<h3 class="text-center text-yellow-200 group-hover:text-yellow-400">
 		{name}
 	</h3>
 	<div class="w-full">
 		{TemplateIcon && <TemplateIcon />}
 	</div>
-	<a href={href} class="text-white">Go to page</a>
-</div>
+	<span class="text-white">Go to page</span>
+</astro-template-card>
+<script>
+	class TemplateCard extends HTMLElement {
+		constructor() {
+			super()
+
+			const href = this.getAttribute("data-href")
+
+			const changeLocation = (event: MouseEvent | KeyboardEvent, href: string) => {
+				event.preventDefault()
+				event.stopPropagation()
+
+				if (event instanceof KeyboardEvent && event.key !== "Enter") {
+					return
+				}
+
+				window.location.href = href
+			}
+
+			if (href) {
+				this.addEventListener("click", (e) => changeLocation(e, href))
+				this.addEventListener("keydown", (e) => changeLocation(e, href))
+			}
+		}
+	}
+
+	customElements.define("astro-template-card", TemplateCard)
+</script>
