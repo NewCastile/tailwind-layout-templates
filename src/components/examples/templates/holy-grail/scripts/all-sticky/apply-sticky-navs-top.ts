@@ -20,10 +20,10 @@ const applyStickyNavsTop = (md: MediaQueryList) => {
 
 	if ($header && $mobileStickyContainer) {
 		if (md.matches) {
-			$mobileStickyContainer.setAttribute("style", `top: ${$header.offsetHeight}px;`)
+			$mobileStickyContainer.style.top = `${$header.offsetHeight}px`
 		} else {
 			$stickyContainers.forEach((stickyContainer) => {
-				stickyContainer.setAttribute("style", `top: ${$header.offsetHeight}px;`)
+				stickyContainer.style.top = `${$header.offsetHeight}px`
 			})
 		}
 	}
