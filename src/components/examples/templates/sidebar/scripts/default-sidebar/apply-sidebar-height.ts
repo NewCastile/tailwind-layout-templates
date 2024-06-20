@@ -16,20 +16,19 @@ const applySidebarHeight = (mq: MediaQueryList) => {
 	const $sidebarContainter = document.querySelector<HTMLElement>(
 		"#default-sidebar #sidebar-container"
 	)
-	const $button = document.querySelector("#default-sidebar #toggle-sidebar-button")
-	const $sidebar = document.querySelector("#default-sidebar #sidebar")
+	const $button = document.querySelector<HTMLElement>("#default-sidebar #toggle-sidebar-button")
+	const $sidebar = document.querySelector<HTMLElement>("#default-sidebar #sidebar")
 
 	if ($sidebarContainter && $button && $sidebar) {
 		if (mq.matches) {
 			$sidebar.setAttribute(
 				"style",
 				`
-						height: calc(100vh - ${$sidebarContainter.clientHeight}px); 
-						max-height: calc(100vh - ${$sidebarContainter.clientHeight}px)
-					`
+					height: calc(100vh - ${$sidebarContainter.clientHeight}px); 
+					max-height: calc(100vh - ${$sidebarContainter.clientHeight}px);
+				`
 			)
 		} else {
-			$sidebar.setAttribute("style", "height: auto; max-height: auto")
 			$sidebar.classList.remove(...openClasses)
 			$sidebar.classList.add(...closeClasses)
 

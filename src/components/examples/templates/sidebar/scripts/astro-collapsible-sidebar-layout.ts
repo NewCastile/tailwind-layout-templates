@@ -15,11 +15,11 @@ class CollapsibleSidebarLayout extends HTMLElement {
 		const animationClasses = ["transition-[width]", "duration-300", "ease-in-out"]
 
 		const $button = this.querySelector<HTMLElement>("#collapsible-sidebar #toggle-sidebar-button")
-		const $sidebar = this.querySelector("#collapsible-sidebar #sidebar")
-		const $wrapper = this.querySelector("#collapsible-sidebar [data-sidebar-wrapper]")
-		const $content = this.querySelector("#collapsible-sidebar [data-layout-content]")
+		const $sidebar = this.querySelector<HTMLElement>("#collapsible-sidebar #sidebar")
+		const $wrapper = this.querySelector<HTMLElement>("#collapsible-sidebar [data-sidebar-wrapper]")
+		const $content = this.querySelector<HTMLElement>("#collapsible-sidebar [data-layout-content]")
 
-		const collapsedSidebarWidth = $wrapper ? `${$wrapper.clientWidth}px` : "48px"
+		const collapsedSidebarIdleWidth = $wrapper ? `${$wrapper.clientWidth}px` : "48px"
 
 		if ($wrapper) {
 			$wrapper.classList.add(...animationClasses)
@@ -28,13 +28,16 @@ class CollapsibleSidebarLayout extends HTMLElement {
 		const toggleNavWidth = (isExpanded: string) => {
 			switch (isExpanded) {
 				case "true":
-					$wrapper!.setAttribute("style", `width: ${collapsedSidebarWidth}px;`)
+					$wrapper!.setAttribute("style", `width: ${collapsedSidebarIdleWidth};`)
 					break
 				case "false":
 					if (mq.matches) {
 						$wrapper!.setAttribute(
 							"style",
-							`min-width: 100%; width: calc(${$wrapper!.clientWidth}px + ${$content!.clientWidth}px);`
+							`
+								width: calc(${$wrapper!.clientWidth}px + ${$content!.clientWidth}px);
+								min-width: 100%;
+							`
 						)
 					} else {
 						$wrapper!.setAttribute("style", `width: ${$sidebar!.clientWidth + 100}px;`)
@@ -72,6 +75,10 @@ class CollapsibleSidebarLayout extends HTMLElement {
 				}
 			})
 		}
+
+		mq.addEventListener("change", () => {
+			toggleNav("true")
+		})
 	}
 }
 

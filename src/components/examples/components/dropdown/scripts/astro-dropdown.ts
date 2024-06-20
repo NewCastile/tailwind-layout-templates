@@ -1,12 +1,13 @@
 class Dropdown extends HTMLElement {
 	constructor() {
 		super()
-		const $button = this.querySelector("button")
-		const $menu = this.querySelector('[role="menu"]')
-		const $menuItems = Array.from(this.querySelectorAll('[role="menuitem"]'))
-		let $firstMenuitem = $menuItems ? $menuItems[0] : null
-		let $lastMenuitem = $menuItems ? $menuItems[$menuItems.length - 1] : null
-		let $firstChars = $menuItems
+		const $button = this.querySelector<HTMLElement>("button")
+		const $menu = this.querySelector<HTMLElement>('[role="menu"]')
+		const $menuItems = Array.from(this.querySelectorAll<HTMLElement>('[role="menuitem"]'))
+
+		const $firstMenuitem = $menuItems ? $menuItems[0] : null
+		const $lastMenuitem = $menuItems ? $menuItems[$menuItems.length - 1] : null
+		const $firstChars = $menuItems
 			? $menuItems.map((el) => {
 					if (!el.textContent) return
 					return el.textContent.trim()[0].toLocaleLowerCase()
@@ -15,13 +16,11 @@ class Dropdown extends HTMLElement {
 
 		// Utilities
 
-		const setFocusToMenuitem = (newMenuitem: Element) => {
+		const setFocusToMenuitem = (newMenuitem: HTMLElement) => {
 			$menuItems.forEach((item) => {
 				if (item === newMenuitem) {
 					item.setAttribute("tabindex", "0")
-					if (newMenuitem instanceof HTMLElement) {
-						newMenuitem.focus()
-					}
+					newMenuitem.focus()
 				} else {
 					item.setAttribute("tabindex", "-1")
 				}
@@ -39,8 +38,8 @@ class Dropdown extends HTMLElement {
 				setFocusToMenuitem($lastMenuitem)
 			}
 		}
-		const setFocusToPreviousMenuitem = (currentMenuitem: Element) => {
-			var newMenuItem: Element | null = null
+		const setFocusToPreviousMenuitem = (currentMenuitem: HTMLElement) => {
+			var newMenuItem: HTMLElement | null = null
 			var index: number = 0
 			if (currentMenuitem === $firstMenuitem) {
 				newMenuItem = $lastMenuitem
@@ -56,8 +55,8 @@ class Dropdown extends HTMLElement {
 			return newMenuItem
 		}
 
-		const setFocusToNextMenuitem = (currentMenuItem: Element) => {
-			var newMenuitem: Element | null = null
+		const setFocusToNextMenuitem = (currentMenuItem: HTMLElement) => {
+			var newMenuitem: HTMLElement | null = null
 			var index: number = 0
 
 			if (currentMenuItem === $lastMenuitem) {
@@ -73,7 +72,7 @@ class Dropdown extends HTMLElement {
 			return newMenuitem
 		}
 
-		const setFocusByFirstCharacter = (currentMenuitem: Element | null, char: string) => {
+		const setFocusByFirstCharacter = (currentMenuitem: HTMLElement | null, char: string) => {
 			if (!currentMenuitem) return
 			var start, index
 
@@ -107,15 +106,15 @@ class Dropdown extends HTMLElement {
 
 		const openPopup = () => {
 			if ($menu && $button) {
-				$menu.setAttribute("style", "display: block")
+				$menu.style.display = "block"
 				$button.setAttribute("aria-expanded", "true")
 			}
 		}
 
 		const closePopup = () => {
 			if ($button && $menu && isOpen()) {
+				$menu.style.display = "none"
 				$button.setAttribute("aria-expanded", "false")
-				$menu.setAttribute("style", "display: none")
 			}
 		}
 
