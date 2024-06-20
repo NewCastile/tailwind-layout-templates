@@ -1,6 +1,5 @@
 ---
 import { PATTERNS, TEMPLATES } from "../../../data"
-import HamburguerIcon from "../../icons/HamburguerIcon.astro"
 
 interface Props {
 	slug: string
@@ -25,59 +24,44 @@ const getClassList = (templateLabel: string) => {
 }
 ---
 
-<astro-stacked-header
-	id="stacked-header"
-	class="sticky top-0 z-40 flex w-full flex-col items-start justify-start gap-0 bg-zinc-900 md:top-16 md:w-1/5 md:bg-transparent"
+<nav
+	id="main-navigation"
+	class="absolute z-[80] flex h-0 w-full flex-col items-start justify-start gap-4 overflow-auto bg-slate-950 p-0 sm:static sm:h-auto sm:bg-transparent sm:p-8 sm:pr-0 md:p-8"
 >
-	<div class="flex h-14 w-full flex-row items-center justify-between px-8 md:hidden md:px-0">
-		<button role="button" id="toggle-nav-button" aria-expanded="false" aria-controls="navigation">
-			<HamburguerIcon />
-		</button>
-	</div>
-	<div class="relative flex w-full flex-col items-end justify-center md:h-full">
-		<nav
-			id="main-navigation"
-			class="absolute top-0 flex h-0 w-full flex-col items-start justify-start gap-4 overflow-hidden bg-zinc-900 px-8 md:static md:h-auto md:overflow-auto md:bg-transparent"
-		>
-			<ul class="flex w-full flex-col items-start justify-center gap-8 md:items-center">
-				<li class="flex w-full flex-col items-start justify-center gap-4 text-left">
-					<h2 class="w-full font-bold">Templates</h2>
-					<ul class="flex w-full flex-col items-start justify-center gap-4 pl-0">
-						{
-							TEMPLATES.map(({ name, href, label }) => {
-								const classList = getClassList(label)
-								return (
-									<li class="w-full">
-										<a class:list={classList} href={href}>
-											{name}
-										</a>
-									</li>
-								)
-							})
-						}
-					</ul>
-				</li>
-				<li class="flex w-full flex-col items-end justify-center gap-4">
-					<h2 class="w-full font-bold">Patterns</h2>
-					<ul class="flex w-full flex-col items-end justify-center gap-4 pl-0">
-						{
-							PATTERNS.map(({ name, href, label }) => {
-								const classList = getClassList(label)
-								return (
-									<li class="w-full">
-										<a class:list={classList} href={href}>
-											{name}
-										</a>
-									</li>
-								)
-							})
-						}
-					</ul>
-				</li>
+	<ul class="flex h-max w-full flex-col items-center justify-start gap-16 p-8 sm:p-0">
+		<li class="flex w-full flex-col items-start justify-center gap-4 text-left">
+			<h2 class="w-full text-xl font-bold">Templates</h2>
+			<ul class="flex w-full flex-col items-start justify-center gap-4">
+				{
+					TEMPLATES.map(({ name, href, label }) => {
+						const classList = getClassList(label)
+						return (
+							<li class="w-full">
+								<a class:list={classList} href={href}>
+									{name}
+								</a>
+							</li>
+						)
+					})
+				}
 			</ul>
-		</nav>
-	</div>
-</astro-stacked-header>
-<script src="../../../components/examples/templates/stacked/scripts/astro-stacked-header.ts"
-></script>
-<script src="../../../components/examples/templates/stacked/scripts/apply-nav-height.ts"></script>
+		</li>
+		<li class="flex w-full flex-col items-end justify-center gap-4">
+			<h2 class="w-full text-xl font-bold">Patterns</h2>
+			<ul class="flex w-full flex-col items-end justify-center gap-4">
+				{
+					PATTERNS.map(({ name, href, label }) => {
+						const classList = getClassList(label)
+						return (
+							<li class="w-full">
+								<a class:list={classList} href={href}>
+									{name}
+								</a>
+							</li>
+						)
+					})
+				}
+			</ul>
+		</li>
+	</ul>
+</nav>
