@@ -58,9 +58,8 @@ const fileNames = files ? files.map(({ rawFileName }) => rawFileName) : []
 					return (
 						<div
 							id={`tabpanel-${panelIdx}`}
-							class:list={[{ hidden: isFirstElement }, "h-full"]}
+							class:list={[{ hidden: !isFirstElement }, "h-full", "w-full"]}
 							role="tabpanel"
-							class="w-full"
 							aria-labelledby={`tab-${panelIdx}`}
 						>
 							<CodeWrapper lang={lang} raw={rawFile} />
