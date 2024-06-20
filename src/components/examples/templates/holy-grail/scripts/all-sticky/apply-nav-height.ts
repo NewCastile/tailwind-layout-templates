@@ -22,26 +22,22 @@ const applyNavHeight = (md: MediaQueryList) => {
 		const remainingHeight = `calc(100vh - ${$header.offsetHeight}px)`
 		if (md.matches) {
 			if (isExpanded === "false") {
-				$nav.setAttribute("style", "")
-				$aside.setAttribute("style", "")
+				$nav.style.transition = ""
+				$nav.style.height = ""
+				$nav.style.maxHeight = ""
+
+				$aside.style.height = ""
+				$aside.style.maxHeight = ""
 
 				$button.setAttribute("aria-expanded", "false")
 			}
 		} else {
-			$nav.setAttribute(
-				"style",
-				`
-					height: ${remainingHeight}; 
-					max-height: ${remainingHeight};
-				`
-			)
-			$aside.setAttribute(
-				"style",
-				`
-					height: ${remainingHeight}; 
-					max-height: ${remainingHeight};
-				`
-			)
+			$nav.style.transition = ""
+			$nav.style.height = `${remainingHeight}`
+			$nav.style.maxHeight = `${remainingHeight}`
+
+			$aside.style.height = `${remainingHeight}`
+			$aside.style.maxHeight = `${remainingHeight}`
 
 			$button.setAttribute("aria-expanded", "false")
 		}

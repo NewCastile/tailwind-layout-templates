@@ -15,11 +15,18 @@ class HolyGrail extends HTMLElement {
 					`
 						height: ${remainingSpace}; 
 						max-height: ${remainingSpace};
+						transition: height 0.2s ease-in-out;
 					`
 				)
 				$button!.setAttribute("aria-expanded", "true")
 			} else {
-				$nav!.setAttribute("style", "height: 0px;")
+				$nav!.setAttribute(
+					"style",
+					`
+						height: 0px;
+						transition: height 0.2s ease-in-out;
+					`
+				)
 				$button!.setAttribute("aria-expanded", "false")
 			}
 		}
