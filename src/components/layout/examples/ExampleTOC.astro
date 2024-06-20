@@ -1,0 +1,36 @@
+---
+import type { TemplateItem } from "../../../data"
+
+interface Props {
+	exampleLabel: TemplateItem["label"]
+	exampleName: TemplateItem["name"]
+	variants: TemplateItem["variants"]
+}
+
+const { exampleLabel, exampleName, variants } = Astro.props
+---
+
+<nav
+	data-sticky-container
+	class="static flex w-full flex-col items-start justify-start gap-4 overflow-auto p-8 sm:sticky"
+	aria-labelledby="toc-label"
+>
+	<h2 aria-label="toc-label" class="w-full text-left text-xl font-medium">Page Contents</h2>
+	<ul class="flex w-full flex-col items-center justify-center gap-2">
+		<li class="w-full text-left text-slate-400 hover:text-white">
+			<a href={`#default-${exampleLabel}`}>
+				Default {exampleName}
+			</a>
+		</li>
+		{
+			variants &&
+				variants.map(({ href, name }) => {
+					return (
+						<li class="w-full text-left text-slate-400 hover:text-white">
+							<a href={href}>{name}</a>
+						</li>
+					)
+				})
+		}
+	</ul>
+</nav>
