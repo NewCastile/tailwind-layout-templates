@@ -19,7 +19,9 @@ const isTemplate = slug.includes("template")
 	data-slug={slug}
 	class="relative flex h-full w-full flex-col items-center justify-center gap-8 pb-8"
 >
-	<div class="flex w-full flex-row items-center justify-center rounded-t-md bg-slate-600 px-4">
+	<div
+		class="relative flex w-full flex-row items-center justify-center rounded-t-md bg-slate-600 px-4"
+	>
 		<div
 			data-breakpoint-menu
 			data-current-breakpoint="DESKTOP"
@@ -28,26 +30,32 @@ const isTemplate = slug.includes("template")
 			<BreakpointButton breakpoint="mobile">
 				<MobileIcon />
 			</BreakpointButton>
-			<BreakpointButton breakpoint="tablet">
-				<TabletIcon />
-			</BreakpointButton>
-			<BreakpointButton breakpoint="desktop">
-				<DesktopIcon />
-			</BreakpointButton>
+			<div class="hidden md:block">
+				<BreakpointButton breakpoint="tablet">
+					<TabletIcon />
+				</BreakpointButton>
+			</div>
+			<div class="hidden lg:block">
+				<BreakpointButton breakpoint="desktop">
+					<DesktopIcon />
+				</BreakpointButton>
+			</div>
 		</div>
 		{
 			isTemplate && (
-				<div class="group relative inline-flex w-max flex-col items-center justify-center align-middle">
-					<span class="absolute -top-[100%] w-max rounded-md border border-slate-300 bg-slate-800 px-4 py-2 text-sm lowercase text-white opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-100">
-						see showcase
-					</span>
-					<a
-						class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:border-white hover:bg-sky-950 hover:text-white"
-						target="_blank"
-						href={`/preview${slug}`}
-					>
-						<ArrowUpIcon />
-					</a>
+				<div class="static sm:absolute sm:right-4">
+					<div class="group relative inline-flex w-max flex-col items-center justify-center align-middle">
+						<span class="absolute -top-[100%] w-max rounded-md border border-slate-300 bg-slate-800 px-4 py-2 text-sm lowercase text-white opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-100">
+							see showcase
+						</span>
+						<a
+							class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:border-white hover:bg-sky-950 hover:text-white"
+							target="_blank"
+							href={`/preview${slug}`}
+						>
+							<ArrowUpIcon />
+						</a>
+					</div>
 				</div>
 			)
 		}
