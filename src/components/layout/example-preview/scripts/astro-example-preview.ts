@@ -1,8 +1,8 @@
 const animationClasses = ["transition-[width]", "duration-300", "ease-in-out"]
 
-const mobileClasses = ["w-full"].concat(["sm:w-[20rem]"], ...animationClasses)
+const mobileClasses = ["w-full"].concat(["w-full", "md:w-[20rem]"], ...animationClasses)
 
-const tabletClasses = ["w-full"].concat(["sm:w-[30rem]"], ...animationClasses)
+const tabletClasses = ["w-full"].concat(["w-full", "lg:w-[30rem]"], ...animationClasses)
 
 const desktopClasses = ["w-full"].concat(...animationClasses)
 
