@@ -1,54 +1,38 @@
-# Astro Starter Kit: Basics
+<div align="center">
 
-```sh
-npm create astro@latest -- --template basics
-```
+# Tailwind Layout Templates
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Templates for common web layouts and patterns.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+![web](./lib/imgs/web.png)
 
-## 🚀 Project Structure
+![Tailwind
+CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.3-blue?style=for-the-badge&logo=tailwind-css)
+![Astro](https://img.shields.io/badge/Astro-4.5.12-orange?style=for-the-badge&logo=astro)
 
-Inside of your Astro project, you'll see the following folders and files:
+Code snippets for layouts and component templates made with TailwindCSS.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Visit the [website](https://tailwind-layout-templates.vercel.app) and look for the template that suits the best for your next project.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+</div>
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## About 📖
 
-Any static assets, like images, can be placed in the `public/` directory.
+Tailwind Layout Templates is a compilation of common layouts (and patterns) in the web I made to deliver simple but powerfull ready-to-use templates using TailwindCSS and the bare-minimum JavaScript needed to tie everything together, taking references mainly from [The World Wide Web Consortium (W3C) Design System](https://www.w3.org/WAI/ARIA/apg/patterns/), the [ARIA Authoring Practices Guide (APG)
+](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
-## 🧞 Commands
+**Its porpouse** its to help you set up the layout for your next project soon as posible, considering accessibility and responsive design.
 
-All commands are run from the root of the project, from a terminal:
+## Usage 🔍
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Visit the [website](https://tailwind-layout-templates.vercel.app) and the click on any of the cards that interest you the most.
 
-## 👀 Want to learn more?
+You will then navigate to the template's details page where you will see diferent implementations of the template and its references. For each implementation you will get to see a demo of how the layout would look like, beign able to **test the layout in different breakpoints** by clicking on the buttons on top of the demo, and **see the layout in a new tab** by clicking on the "see showcase" link on the far right.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+![web](./lib/imgs/template-example-preview.png)
+
+Bellow the demo, you will see **all the necessary files to reproduce the exact layout showned on the demo** in a nice VSCode-like tab menu 😁. You can copy the content of the selected file by click the button fixed to the bottom-right corner.
+
+![web](./lib/imgs/example-files-preview.png)
