@@ -1,3 +1,5 @@
+// Applies top style property to the navigation element(s) depending on the header height
+
 const $sidebarHeader = document.querySelector<HTMLElement>("#sidebar-with-header header")
 const $sidebarContainer = document.querySelector<HTMLElement>(
 	"#sidebar-with-header [data-sidebar-container]"

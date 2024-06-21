@@ -1,3 +1,5 @@
+// Applies top style property to the navigation element(s) depending on the media query, viewport height and other elements height
+
 import tailwindTheme from "../../../../../../../tailwind.config.mjs"
 
 const {
