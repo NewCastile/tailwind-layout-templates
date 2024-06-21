@@ -15,4 +15,7 @@ export const DropdownPattern: TemplateItem = {
 	],
 	icon: DropdownIcon,
 	component: Dropdown,
+	references: [
+		"https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/",
+	],
 }

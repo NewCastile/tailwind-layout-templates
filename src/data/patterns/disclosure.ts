@@ -20,4 +20,5 @@ export const DisclosurePattern: TemplateItem = {
 		},
 	],
 	href: "/examples/patterns/disclosure",
+	references: ["https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/"],
 }

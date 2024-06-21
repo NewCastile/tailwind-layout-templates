@@ -45,4 +45,5 @@ export const LinkPattern: TemplateItem = {
 			href: "examples/patterns/link#span-link",
 		},
 	],
+	references: ["https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/"],
 }
