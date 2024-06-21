@@ -92,5 +92,9 @@ export const HolyGrailTemplate: TemplateItem = {
 			],
 		},
 	],
-	references: ["https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/"],
+	references: [
+		"https://web.dev/patterns/layout/holy-grail",
+		"https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/",
+		"https://en.wikipedia.org/wiki/Holy_grail_(web_design)",
+	],
 }

@@ -43,8 +43,7 @@ export const MenubarTemplate: TemplateItem = {
 	],
 	variants: [],
 	references: [
-		"https://design-system.w3.org/components/navigation.html",
-		"https://design-system.w3.org/templates/default.html",
-		"https://design-system.w3.org/code/default.html",
+		"https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
+		"https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/",
 	],
 }
