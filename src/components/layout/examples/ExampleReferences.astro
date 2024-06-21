@@ -1,6 +1,5 @@
 ---
 import type { TemplateItem } from "../../../data"
-import ExternalLinkIcon from "../../icons/ExternalLinkIcon.astro"
 
 interface Props {
 	references: TemplateItem["references"]
@@ -18,13 +17,8 @@ const { references } = Astro.props
 					{references.map((r) => {
 						return (
 							<li class="w-full">
-								<a
-									target="_blank"
-									class="inline-flex w-full flex-row items-center gap-2 align-middle"
-									href={r}
-								>
+								<a target="_blank" href={r}>
 									[{r}]
-									<ExternalLinkIcon width="20" height="20" />
 								</a>
 							</li>
 						)
@@ -41,6 +35,8 @@ const { references } = Astro.props
 	}
 	li {
 		display: list-item;
+		width: 100%;
+		word-wrap: break-word;
 	}
 	a {
 		@apply decoration-white decoration-2 underline-offset-8 hover:underline;
