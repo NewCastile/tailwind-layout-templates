@@ -1,0 +1,48 @@
+---
+import type { TemplateItem } from "../../../data"
+import ExternalLinkIcon from "../../icons/ExternalLinkIcon.astro"
+
+interface Props {
+	references: TemplateItem["references"]
+}
+
+const { references } = Astro.props
+---
+
+<>
+	{
+		references && (
+			<section id="references" class="flex w-full flex-col gap-8">
+				<h2 class="text-xl font-bold">References</h2>
+				<ol class="flex w-full flex-col items-center justify-start gap-4">
+					{references.map((r) => {
+						return (
+							<li class="w-full">
+								<a
+									target="_blank"
+									class="inline-flex w-full flex-row items-center gap-2 align-middle"
+									href={r}
+								>
+									[{r}]
+									<ExternalLinkIcon width="20" height="20" />
+								</a>
+							</li>
+						)
+					})}
+				</ol>
+			</section>
+		)
+	}
+</>
+<style>
+	ol {
+		list-style: decimal;
+		padding-left: 1.5rem;
+	}
+	li {
+		display: list-item;
+	}
+	a {
+		@apply decoration-white decoration-2 underline-offset-8 hover:underline;
+	}
+</style>
