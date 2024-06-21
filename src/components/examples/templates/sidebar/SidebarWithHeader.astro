@@ -7,7 +7,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 	class="flex h-full min-h-screen w-full flex-col items-stretch justify-start sm:grid sm:grid-cols-[25%_1fr] sm:grid-rows-[auto_1fr]"
 >
 	<header
-		class="sticky top-0 col-span-full w-full border-b-2 border-slate-500 bg-zinc-800 px-8 py-4"
+		class="sticky top-0 z-50 col-span-full w-full border-b-2 border-slate-500 bg-zinc-800 px-8 py-4"
 	>
 		<h2 class="text-right text-2xl font-bold">Header</h2>
 	</header>
@@ -25,11 +25,11 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 			>
 				open
 			</button>
-			<div class="relative flex w-full flex-col items-start justify-start">
+			<div class="relative flex h-auto w-full flex-col items-start justify-start sm:h-screen">
 				<nav
 					id="sidebar"
 					aria-labelledby="sidebar-label"
-					class="absolute -left-full flex w-full flex-col items-center justify-start gap-4 bg-zinc-800 p-8 sm:static sm:h-auto"
+					class="absolute -left-full flex w-full flex-col items-center justify-start gap-4 overflow-auto bg-zinc-800 p-8 sm:static"
 				>
 					<h2 id="sidebar-label" class="w-full text-left text-xl">Sidebar</h2>
 					<ul class="flex w-full flex-col items-center justify-center gap-2">

@@ -14,9 +14,9 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 			<nav
 				id="sidebar"
 				aria-labelledby="sidebar-label"
-				class="flex w-max flex-col items-start justify-start gap-4 p-4 pr-8"
+				class="flex h-screen w-full min-w-max flex-col items-start justify-start gap-4 p-4 pr-8"
 			>
-				<div class="flex w-max flex-row items-baseline justify-start gap-4">
+				<div class="flex flex-row items-baseline justify-start gap-4">
 					<button
 						aria-expanded="false"
 						aria-controls="sidebar"
@@ -28,17 +28,15 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 					</button>
 					<span id="sidebar-label" class="w-full text-left text-2xl font-bold">Sidebar</span>
 				</div>
-				<ul class="flex w-max flex-col items-center justify-center gap-4">
+				<ul class="flex w-full flex-col items-center justify-center gap-4 overflow-auto">
 					{
 						Array(5)
 							.fill("Item #")
 							.map((str, idx) => {
 								return (
-									<li class="flex w-max flex-row items-center justify-start gap-4">
-										<div class="size-4 rounded-full bg-white px-2" />
-										<span>
-											<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
-										</span>
+									<li class="inline-flex w-full flex-row items-center justify-start gap-4 align-middle">
+										<div class="inline-block size-4 rounded-full bg-white px-2" />
+										<a class="w-full" href="">{`${str}${idx + 1}`}</a>
 									</li>
 								)
 							})
@@ -48,7 +46,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 		</div>
 	</div>
 	<div data-layout-content class="flex h-full flex-col items-start justify-start p-8">
-		<SectionsPlaceholder sectionsQuantity={2} />
+		<SectionsPlaceholder sectionsQuantity={22} />
 	</div>
 </astro-collapsible-sidebar-layout>
 <style>
