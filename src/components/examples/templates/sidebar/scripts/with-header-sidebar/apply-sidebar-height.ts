@@ -28,7 +28,13 @@ const applySidebarHeight = (mq: MediaQueryList) => {
 			)
 			$sidebarGridArea.setAttribute("style", `top: ${$header.offsetHeight}px;`)
 		} else {
-			$sidebar.setAttribute("style", "height: auto; max-height: auto;")
+			$sidebar.setAttribute(
+				"style",
+				`
+					height: calc(100vh - ${$header.offsetHeight}px); 
+					max-height: calc(100vh - ${$header.offsetHeight}px);
+				`
+			)
 			$sidebar.classList.remove(...openClasses)
 			$sidebar.classList.add(...closeClasses)
 
