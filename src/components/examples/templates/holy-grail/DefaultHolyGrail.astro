@@ -5,22 +5,22 @@ import Footer from "../../../shared/Footer.astro"
 
 <astro-holy-grail-layout
 	id="holy-grail-layout"
-	class="flex min-h-screen w-full flex-col items-start justify-between sm:grid sm:grid-cols-[20%_60%_20%] sm:grid-rows-[auto_1fr_auto]"
+	class="flex min-h-screen w-full flex-col items-stretch justify-between sm:grid sm:grid-cols-[20%_60%_20%] sm:grid-rows-[auto_1fr_auto]"
 >
 	<header class="col-span-full w-full border-b-2 border-slate-500 px-8 py-4">
 		<h2 class="text-left text-2xl font-bold">Header</h2>
 	</header>
 	<div
 		id="main-navigation-container"
-		class="col-span-1 flex h-full w-full flex-col items-start justify-start bg-zinc-800 p-0 sm:p-8"
+		class="col-span-1 flex w-full flex-col items-start justify-start bg-zinc-800 p-0 sm:p-8"
 	>
-		<div class="sm flex w-full flex-row items-center justify-end py-2 sm:py-0">
+		<div class="sm flex w-full items-center justify-end py-2 sm:py-0">
 			<button
 				id="toggle-nav-button"
 				role="button"
 				aria-expanded="false"
 				aria-controls="navigation"
-				class="block self-end px-8 py-2 sm:hidden"
+				class="block px-8 py-2 sm:hidden"
 			>
 				open
 			</button>
@@ -38,8 +38,8 @@ import Footer from "../../../shared/Footer.astro"
 							.fill("Element #")
 							.map((str, idx) => {
 								return (
-									<li class="w-full text-left">
-										<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
+									<li class="inline-flex w-full justify-start">
+										<a href="">{`${str}${idx + 1}`}</a>
 									</li>
 								)
 							})
@@ -51,17 +51,17 @@ import Footer from "../../../shared/Footer.astro"
 	<div class="col-span-1 flex w-full flex-col items-center justify-start p-8">
 		<SectionsPlaceholder sectionsQuantity={10} />
 	</div>
-	<aside class="col-span-1 flex h-full w-full flex-col items-center justify-start bg-zinc-800 p-8">
-		<nav class="flex w-full flex-col items-center justify-start gap-4" aria-labelledby="toc-label">
-			<h2 aria-label="toc-label" class="w-full text-left text-xl">Page Contents</h2>
+	<aside class="col-span-1 flex w-full flex-col items-center justify-start bg-zinc-800 p-8">
+		<nav class="flex w-full flex-col items-start justify-start gap-4" aria-labelledby="toc-label">
+			<h2 aria-label="toc-label" class="text-left text-xl">Page Contents</h2>
 			<ul class="flex w-full flex-col items-center justify-center gap-2">
 				{
 					Array(4)
 						.fill("Element #")
 						.map((str, idx) => {
 							return (
-								<li class="w-full text-left">
-									<a href="" class="inline-flex w-full">{`${str}${idx + 1}`}</a>
+								<li class="inline-flex w-full justify-start">
+									<a href="">{`${str}${idx + 1}`}</a>
 								</li>
 							)
 						})

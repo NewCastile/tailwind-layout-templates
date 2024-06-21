@@ -8,7 +8,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 >
 	<div
 		id="sidebar-container"
-		class="sticky top-0 h-auto w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:h-screen sm:max-h-screen sm:border-b-0 sm:border-r-2"
+		class="sticky top-0 w-full flex-col items-start justify-start border-b-2 border-slate-500 bg-zinc-800 sm:h-screen sm:max-h-screen sm:border-b-0 sm:border-r-2"
 	>
 		<div class="flex w-full justify-end">
 			<button
@@ -16,7 +16,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 				role="button"
 				aria-expanded="false"
 				aria-controls="sidebar"
-				class="block px-8 py-2 text-right sm:hidden"
+				class="block px-8 py-2 sm:hidden"
 			>
 				open
 			</button>
@@ -25,17 +25,17 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 			<nav
 				id="sidebar"
 				aria-labelledby="sidebar-label"
-				class="absolute -left-full top-0 flex w-full flex-col items-center justify-start gap-4 overflow-auto bg-zinc-800 p-8 sm:static"
+				class="absolute -left-full top-0 flex w-full flex-col items-start justify-start gap-4 overflow-auto bg-zinc-800 p-8 sm:static"
 			>
-				<h2 id="sidebar-label" class="w-full text-left text-xl">Sidebar</h2>
+				<h2 id="sidebar-label" class="text-left text-xl">Sidebar</h2>
 				<ul class="flex w-full flex-col items-center justify-center gap-2">
 					{
 						Array(5)
 							.fill("Item #")
 							.map((str, idx) => {
 								return (
-									<li class="w-full">
-										<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
+									<li class="inline-flex w-full justify-start">
+										<a href="">{`${str}${idx + 1}`}</a>
 									</li>
 								)
 							})

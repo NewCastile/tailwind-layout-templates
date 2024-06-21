@@ -6,7 +6,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 	id="collapsible-sidebar"
 	class="grid min-h-screen w-full grid-flow-row grid-cols-[3rem_1fr]"
 >
-	<div class="z-20 flex h-full w-max flex-col items-start justify-start bg-zinc-800">
+	<div class="z-50 flex h-full w-max flex-col items-start justify-start bg-zinc-800">
 		<div
 			data-sidebar-wrapper
 			class="sticky top-0 flex w-12 flex-col items-start justify-start gap-8 overflow-x-hidden"
@@ -16,13 +16,13 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 				aria-labelledby="sidebar-label"
 				class="flex h-screen w-full min-w-max flex-col items-start justify-start gap-4 p-4 pr-8"
 			>
-				<div class="flex flex-row items-baseline justify-start gap-4">
+				<div class="flex items-baseline justify-start gap-4">
 					<button
 						aria-expanded="false"
 						aria-controls="sidebar"
 						role="button"
 						id="toggle-sidebar-button"
-						class="flex size-4 flex-col items-center justify-center px-2 text-2xl"
+						class="inline-flex size-4 flex-col items-center justify-center px-2 text-2xl"
 					>
 						{">"}
 					</button>
@@ -34,7 +34,7 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 							.fill("Item #")
 							.map((str, idx) => {
 								return (
-									<li class="inline-flex w-full flex-row items-center justify-start gap-4 align-middle">
+									<li class="inline-flex w-full items-center justify-start gap-4 align-middle">
 										<div class="inline-block size-4 rounded-full bg-white px-2" />
 										<a class="w-full" href="">{`${str}${idx + 1}`}</a>
 									</li>

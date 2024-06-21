@@ -21,11 +21,11 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 				role="button"
 				aria-expanded="false"
 				aria-controls="sidebar"
-				class="block px-8 py-2 text-right sm:hidden"
+				class="block px-8 py-2 sm:hidden"
 			>
 				open
 			</button>
-			<div class="relative flex h-auto w-full flex-col items-start justify-start sm:h-screen">
+			<div class="relative flex w-full flex-col items-start justify-start sm:h-screen">
 				<nav
 					id="sidebar"
 					aria-labelledby="sidebar-label"
@@ -38,8 +38,8 @@ import SectionsPlaceholder from "../../../layout/SectionsPlaceholder.astro"
 								.fill("Item #")
 								.map((str, idx) => {
 									return (
-										<li class="w-full">
-											<a class="inline-flex w-full" href="">{`${str}${idx + 1}`}</a>
+										<li class="inline-flex w-full justify-start">
+											<a href="">{`${str}${idx + 1}`}</a>
 										</li>
 									)
 								})

@@ -11,7 +11,7 @@ import TriangleIcon from "../../../icons/TriangleIcon.astro"
 		<h3 class="w-full text-lg">
 			<button
 				aria-expanded="false"
-				class="flex w-full flex-wrap items-start justify-between rounded-md px-4 py-2 text-lg font-bold hover:bg-gray-600 hover:underline focus:no-underline"
+				class="flex w-full flex-wrap items-start justify-between rounded-md px-4 py-2 text-lg font-bold"
 			>
 				AI KR (Artificial Intelligence Knowledge Representation)
 				<TriangleIcon />
@@ -31,8 +31,17 @@ import TriangleIcon from "../../../icons/TriangleIcon.astro"
 				practices and implementation options for the conceptualization and specification of domain
 				knowledge in AI.
 			</p>
-			<a href="path/to/page">Visit the AI KR Community Group</a>
+			<a href="">Visit the AI KR Community Group</a>
 		</div>
 	</div>
 </astro-disclosure>
+<style>
+	button:hover {
+		@apply bg-gray-600 underline;
+	}
+
+	button:focus {
+		@apply no-underline;
+	}
+</style>
 <script src="./scripts/astro-disclosure.ts"></script>
