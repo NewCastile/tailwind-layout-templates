@@ -5,9 +5,10 @@ interface Props {
 	exampleLabel: TemplateItem["label"]
 	exampleName: TemplateItem["name"]
 	variants: TemplateItem["variants"]
+	references: TemplateItem["references"]
 }
 
-const { exampleLabel, exampleName, variants } = Astro.props
+const { exampleLabel, exampleName, variants, references } = Astro.props
 ---
 
 <nav
@@ -31,6 +32,13 @@ const { exampleLabel, exampleName, variants } = Astro.props
 						</li>
 					)
 				})
+		}
+		{
+			references && (
+				<li class="w-full text-left text-slate-400 hover:text-white">
+					<a href={"#references"}>References</a>
+				</li>
+			)
 		}
 	</ul>
 </nav>
