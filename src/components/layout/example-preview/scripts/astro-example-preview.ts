@@ -6,7 +6,7 @@ const tabletClasses = ["w-full"].concat(["w-full", "lg:w-[30rem]"], ...animation
 
 const desktopClasses = ["w-full"].concat(...animationClasses)
 
-const selectedClasses = ["border-white", "bg-sky-950", "text-slate-200"]
+const selectedClasses = ["ring-2", "ring-white", "bg-foreground", "text-white"]
 
 const breakpoints = [
 	{ id: "MOBILE", classes: mobileClasses },

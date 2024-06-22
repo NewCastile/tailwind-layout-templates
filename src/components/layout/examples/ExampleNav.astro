@@ -13,7 +13,7 @@ const getClassList = (templateLabel: string) => {
 		"inline-flex",
 		"hover:text-white",
 		"hover:font-[700]",
-		{ "text-slate-400": slug !== templateLabel },
+		{ "text-secondary": slug !== templateLabel },
 		{ "text-white": slug === templateLabel },
 		{ "font-[700]": slug === templateLabel },
 		{ underline: slug === templateLabel },
@@ -26,11 +26,11 @@ const getClassList = (templateLabel: string) => {
 
 <nav
 	id="main-navigation"
-	class="absolute z-[80] flex h-0 w-full flex-col items-start justify-start gap-4 overflow-auto bg-slate-950 p-0 sm:static sm:h-auto sm:bg-transparent sm:p-8 sm:pr-0 md:p-8"
+	class="bg-primary absolute z-[80] flex h-0 w-full flex-col items-start justify-start gap-4 overflow-auto p-0 sm:static sm:h-auto sm:bg-transparent sm:p-8 sm:pr-0 md:p-8"
 >
 	<ul class="flex h-max w-full flex-col items-center justify-start gap-16 p-8 sm:p-0">
 		<li class="flex w-full flex-col items-start justify-center gap-4 text-left">
-			<h2 class="w-full text-xl font-bold">Templates</h2>
+			<h2 class="w-full text-xl font-bold text-white">Templates</h2>
 			<ul class="flex w-full flex-col items-start justify-center gap-4">
 				{
 					TEMPLATES.map(({ name, href, label }) => {
@@ -47,7 +47,7 @@ const getClassList = (templateLabel: string) => {
 			</ul>
 		</li>
 		<li class="flex w-full flex-col items-end justify-center gap-4">
-			<h2 class="w-full text-xl font-bold">Patterns</h2>
+			<h2 class="w-full text-xl font-bold text-white">Patterns</h2>
 			<ul class="flex w-full flex-col items-end justify-center gap-4">
 				{
 					PATTERNS.map(({ name, href, label }) => {

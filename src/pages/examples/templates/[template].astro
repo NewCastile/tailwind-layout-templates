@@ -42,7 +42,7 @@ const pageTitle = `TLT - ${PageTemplateName}`
 			<h2 slot="example-name" class="w-full text-4xl font-medium">
 				{PageTemplateName}
 			</h2>
-			<div class="flex size-full flex-col items-center justify-center rounded-md bg-slate-800">
+			<div class="flex size-full flex-col items-center justify-center rounded-md bg-neutral-900">
 				{
 					PageTemplateExample && (
 						<ExampleIframe files={PageTemplateFiles} slug={`/templates/${PageTemplateLabel}`} />
@@ -57,7 +57,7 @@ const pageTitle = `TLT - ${PageTemplateName}`
 						return (
 							<section id={label} class="flex w-full flex-col items-center justify-center gap-4">
 								<h2 class="w-full text-4xl font-medium">{name}</h2>
-								<div class="flex w-full flex-col items-center justify-center rounded-md bg-slate-800">
+								<div class="flex w-full flex-col items-center justify-center rounded-md bg-neutral-900">
 									{VariantComponent && (
 										<ExampleIframe files={VariantTemplateFiles} slug={`/templates/${label}`} />
 									)}

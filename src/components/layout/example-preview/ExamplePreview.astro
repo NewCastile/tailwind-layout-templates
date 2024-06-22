@@ -1,9 +1,9 @@
 ---
 import type { TemplateItem } from "../../../data"
-import ArrowUpIcon from "../../icons/ArrowUpIcon.astro"
 import DesktopIcon from "../../icons/device-icons/DesktopIcon.astro"
 import MobileIcon from "../../icons/device-icons/MobileIcon.astro"
 import TabletIcon from "../../icons/device-icons/TabletIcon.astro"
+import ExampleShowcaseLink from "../examples/ExampleShowcaseLink.astro"
 import BreakpointButton from "./lib/BreakpointButton.astro"
 import FileTabs from "./lib/FileTabs.astro"
 
@@ -17,10 +17,10 @@ const isTemplate = slug.includes("template")
 
 <astro-example-preview
 	data-slug={slug}
-	class="relative flex h-full w-full flex-col items-center justify-center gap-8 pb-8"
+	class="border-secondary relative flex h-full w-full flex-col items-center justify-center gap-8 rounded-md border-2 pb-8"
 >
 	<div
-		class="relative flex w-full flex-row items-center justify-center rounded-t-md bg-slate-600 px-4"
+		class="bg-foreground relative flex w-full flex-row items-center justify-center rounded-t-md px-4"
 	>
 		<div
 			data-breakpoint-menu
@@ -41,28 +41,11 @@ const isTemplate = slug.includes("template")
 				</BreakpointButton>
 			</div>
 		</div>
-		{
-			isTemplate && (
-				<div class="static sm:absolute sm:right-4">
-					<div class="group relative inline-flex w-max flex-col items-center justify-center align-middle">
-						<span class="absolute -top-[100%] w-max rounded-md border border-slate-300 bg-slate-800 px-4 py-2 text-sm lowercase text-white opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-100">
-							see showcase
-						</span>
-						<a
-							class="inline-flex h-max flex-col items-center justify-center rounded-full border border-slate-500 bg-slate-800 p-2 align-middle text-slate-400 hover:border-white hover:bg-sky-950 hover:text-white"
-							target="_blank"
-							href={`/preview${slug}`}
-						>
-							<ArrowUpIcon />
-						</a>
-					</div>
-				</div>
-			)
-		}
+		{isTemplate && <ExampleShowcaseLink slug={slug} />}
 	</div>
 	<div data-iframe-wrapper class="flex h-auto w-full flex-col items-center justify-center px-8">
 		<iframe
-			class="flex h-[500px] w-full flex-col items-center justify-center rounded-md border-2 border-slate-500 hover:border-white"
+			class="border-secondary flex h-[500px] w-full flex-col items-center justify-center rounded-md border-2 hover:border-white"
 			src={`/preview${slug}`}
 		>
 		</iframe>
