@@ -1,0 +1,31 @@
+---
+import ArrowUpIcon from "../../icons/ArrowUpIcon.astro"
+
+interface Props {
+	slug: string
+}
+
+const { slug } = Astro.props
+---
+
+<div class="static sm:absolute sm:right-4">
+	<div class="group relative inline-flex w-max flex-col items-center justify-center align-middle">
+		<span
+			class="bg-primary absolute -top-[100%] w-max rounded-md border border-neutral-600 px-4 py-2 text-sm lowercase text-white opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-100"
+		>
+			see showcase
+		</span>
+		<a
+			class="bg-primary text-secondary inline-flex h-max flex-col items-center justify-center rounded-full border border-neutral-600 p-2 align-middle"
+			target="_blank"
+			href={`/preview${slug}`}
+		>
+			<ArrowUpIcon />
+		</a>
+	</div>
+</div>
+<style>
+	a:hover {
+		@apply bg-foreground text-white ring-2 ring-white;
+	}
+</style>
